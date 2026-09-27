@@ -39,6 +39,20 @@ fijados en el código**: se configuran por proyecto mediante un *perfil discipli
 2. **Verificación estructural, no por prompt.** Pedir al modelo "no inventes" no basta; el sistema
    debe impedir que llegue al texto final una cita no verificada.
 3. **Trazabilidad total.** Cada afirmación → documento → página.
-4. **Humano en el bucle** en los puntos de decisión: selección final del corpus, interpretación de
-   disputas, versión final del texto.
+4. **Humano en el bucle en puntos de control fijos** (ver abajo); entre ellos, el sistema trabaja
+   de forma autónoma.
 5. **Límites explícitos** de profundidad, número de documentos y coste en cada ejecución.
+
+## Puntos de control humano (decisión ADR-0004)
+
+El agente se detiene y espera aprobación solo en estos momentos:
+
+| ID | Momento | Qué valida el investigador | Tareas afectadas |
+|---|---|---|---|
+| **PC-1** | Antes de buscar | Términos de búsqueda, sinónimos, fuentes, periodo, idiomas | B1–B2 |
+| **PC-2** | Tras el ranking (y en cada ronda de snowballing) | Selección del corpus: `candidatos.csv` → `seleccion.csv` | B3, B6 |
+| **PC-3** | Antes de redactar | Esquema del artículo, argumento central, estructura | R1 |
+| **PC-4** | Antes de exportar | Versión final + informe de verificación de citas | R2–R4 |
+
+Entre puntos de control, el agente informa del progreso pero no pregunta. Si encuentra un bloqueo
+(fuente inaccesible, PDF ilegible, límite alcanzado) lo registra y continúa con el resto.

@@ -1,7 +1,6 @@
 # Documentos con copyright y datos de trabajo (nunca a git)
 corpus/
-proyectos/*/pdf/
-proyectos/*/texto/
+proyectos/
 *.pdf
 
 # Secretos

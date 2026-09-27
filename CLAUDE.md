@@ -17,8 +17,11 @@ si la decisión que necesitas sigue abierta. Si está abierta, pregunta; no la t
 3. **Formato de cita determinista.** Lo genera CSL/citeproc, no el modelo.
 4. **Solo acceso legal.** APIs oficiales, acceso abierto y la suscripción legítima del usuario.
    Nada de Sci-Hub, LibGen ni scraping masivo de plataformas con licencia.
-5. **Los PDF y datos con copyright no se suben a git** (`corpus/` está en `.gitignore`).
+5. **Los datos de investigación viven fuera del repo**, en `$LORU_DATOS/<proyecto>/` (ADR-0003).
+   Nunca copies PDFs ni texto con copyright al repositorio.
 6. **Trazabilidad.** Cada afirmación del estado de la cuestión debe enlazar a documento + página.
+7. **Respeta los puntos de control PC-1…PC-4** (`docs/00-vision.md`): detente y pide aprobación
+   en ellos; entre ellos, trabaja sin preguntar.
 
 ## Convenciones
 

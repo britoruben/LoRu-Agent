@@ -27,7 +27,7 @@ flowchart LR
 | **Agentes especializados** | Tareas con contexto propio | Subagentes en `.claude/agents/` |
 | **Herramientas** | Acceso a fuentes y operaciones deterministas | Servidores MCP (`.mcp.json`) + scripts en `herramientas/` |
 | **Guardarraíles** | Validaciones automáticas | Hooks en `.claude/settings.json` (p. ej. verificar citas antes de guardar un borrador) |
-| **Datos** | Corpus, texto extraído, fichas, biblioteca | Carpeta `proyectos/<nombre>/` (fuera de git lo que tiene copyright) |
+| **Datos** | Corpus, texto extraído, fichas, biblioteca | Carpeta **externa** configurable (ADR-0003), no dentro del repo |
 
 **Por qué subagentes:** cada documento analizado consume mucho contexto. Delegar el análisis de cada
 documento a un subagente que devuelve una *ficha estructurada* mantiene limpio el contexto del
@@ -37,7 +37,7 @@ orquestador y permite paralelizar.
 deduplicación, cálculo de relevancia, extracción PDF, verificación) va en código testeable; MCP
 se usa cuando ya existe un servidor maduro (p. ej. para el gestor bibliográfico).
 
-## Subagentes propuestos
+## Subagentes (decisión: 7, cada uno testeable por separado)
 
 | Subagente | Tareas | Entrada → Salida |
 |---|---|---|
@@ -88,20 +88,26 @@ LoRu-Agent/
 │   └── verificacion/           # verificador de citas
 ├── estilos/                    # CSL y guías de revistas
 ├── plantillas/                 # proyecto.yaml, ficha.yaml, informe
-├── proyectos/                  # un directorio por investigación (datos, fuera de git)
+├── .env.ejemplo                # LORU_DATOS=~/Investigacion, claves de API  (fase 1+)
 ├── tests/
 └── docs/
 ```
 
-## Flujo de datos de un proyecto
+## Datos de un proyecto (fuera del repo)
+
+El repositorio es la **herramienta**; los datos de cada investigación viven en una carpeta externa
+definida por la variable `LORU_DATOS` en `.env` (por defecto `~/Investigacion`). Así:
+- borrar o actualizar el clon no pierde trabajo;
+- la carpeta puede sincronizarse (Drive, OneDrive, Nextcloud) y compartirse con el equipo;
+- los PDFs con copyright nunca están cerca de git.
 
 ```
-proyectos/<nombre>/
+$LORU_DATOS/<proyecto>/
 ├── proyecto.yaml        # perfil
 ├── candidatos.csv       # B1–B3 (con puntuación y motivo)
 ├── seleccion.csv        # tras revisión humana
-├── pdf/                 # B4 (git-ignored)
-├── texto/               # texto extraído con marcas de página (git-ignored)
+├── pdf/                 # B4
+├── texto/               # texto extraído con marcas de página
 ├── fichas/              # B5: una ficha YAML por documento
 ├── grafo.json           # B6: red de citas
 ├── biblioteca.json      # CSL-JSON verificada (la única fuente de citas válida)

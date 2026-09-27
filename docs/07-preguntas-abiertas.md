@@ -13,7 +13,7 @@ Agenda para la reunión Rubén + Lola. Cada respuesta debe convertirse en un ADR
 | P-07 | ¿Idiomas de búsqueda y redacción? | es · en · ambos | Ambos | Fase 3 | Abierta |
 | P-08 | ¿Presupuesto y plan de Claude? | Plan Pro/Max · API con pago por uso | Definir límite de coste por proyecto | Fase 4 | Abierta |
 | P-09 | ¿Herramienta de extracción de referencias de PDF? | Metadatos API · GROBID · parser propio | Metadatos API primero; GROBID si falta cobertura | Fase 5 | Abierta |
-| P-10 | ¿Dónde se guardan los datos de proyectos? | Dentro del repo (git-ignored) · carpeta externa | Carpeta configurable, por defecto `proyectos/` git-ignored | Fase 1 | Abierta |
+| P-10 | ¿Dónde se guardan los datos de proyectos? | Dentro del repo (git-ignored) · carpeta externa · repo de datos | Carpeta externa configurable | Fase 1 | **Cerrada → ADR-0003** |
 
 ## Preguntas para la biblioteca de la institución (P-03/P-04)
 
