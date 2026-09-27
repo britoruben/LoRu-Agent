@@ -34,17 +34,17 @@ consulta en cuatro momentos clave** antes de seguir (ver apartado 4).
 En la documentación técnica a estos ayudantes se les llama **subagentes**: son copias de Claude a
 las que se da una única tarea y unas instrucciones concretas.
 
-## 3. Cómo se usa (cuando esté construido)
+## 3. Cómo se usará (cuando esté construido)
 
-1. Abres una ventana de texto en tu ordenador (la **terminal**) y escribes `claude`. Se abre una
-   conversación con Claude, como un chat, pero con acceso a tus carpetas de trabajo.
+> De momento solo funcionan el verificador de citas y la preparación de PDF (apartado 7). Los pasos de este apartado
+> describen el sistema completo, que todavía se está construyendo.
+
+1. Abres una conversación con Claude Code, en la web o en tu ordenador. Es como un chat, pero
+   Claude puede leer y crear archivos del proyecto.
 2. Escribes un comando que empieza por barra, por ejemplo `/state-of-the-art`, y respondes a lo que
    te pregunta: tu pregunta de investigación, la disciplina, el periodo, los idiomas…
 3. El equipo trabaja. Te va informando de lo que hace y **se detiene en los puntos de control**.
-4. Al final, encuentras los resultados en una carpeta de tu ordenador, como documentos normales
-   (Word, PDF, tablas).
-
-Habrá una guía de instalación paso a paso con capturas cuando se construya la primera versión.
+4. Al final, recibes los resultados como documentos normales (Word, PDF, tablas).
 
 ## 4. Los cuatro momentos en que el sistema te consulta
 
@@ -110,7 +110,9 @@ Más detalle en [05 · Verificación de citas](05-citation-verification.md).
 
 ## 7. Qué se puede probar ya
 
-Para instalarlo en tu ordenador, sigue la [guía de instalación](instalacion.md).
+La forma más sencilla es **Claude Code en la web**, sin instalar nada: los pasos están en
+[ejemplos](../ejemplos/LEEME.md), apartado 4. Si prefieres tu ordenador, sigue la
+[guía de instalación](instalacion.md).
 
 Ya funciona un primer prototipo del **verificador de citas**, con un proyecto de ejemplo con
 errores puestos a propósito. Ver [ejemplos](../ejemplos/LEEME.md): se puede ver el resultado

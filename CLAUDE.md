@@ -24,6 +24,33 @@ do not take it yourself.
 
 **At the start of a session, read `docs/next-steps.md`.**
 
+## What exists today (do not pretend otherwise)
+
+- **Works:** the citation verifier (`/verify-citations`), the PDF text extractor
+  (`/prepare-pdf`) and the DOI checker against Crossref. The demo project is in
+  `ejemplos/proyecto-demo/`.
+- **Does not exist yet:** catalogue search, reading notes, snowballing, state of the art,
+  article writing and their commands (`/search`, `/state-of-the-art`…). If asked for them, say
+  they are planned (see `docs/06-phased-plan.md`) and do not simulate them.
+- In a research conversation, any work you mention from memory is **unverified**: say so
+  explicitly and never present it as checked. Only works on a project's shelf
+  (`biblioteca.json`, checked) count as verified.
+
+## Working in the cloud (Claude Code on the web)
+
+The team currently works only in the cloud.
+
+- At the start of each web session, `.claude/hooks/session-start.sh` creates `.venv`, installs
+  `requirements.txt` and makes `python`/`python3` use it. If a program fails because a package is
+  missing, run that script again.
+- Research data go in `$LORU_DATOS/<project>/` (in the cloud, `~/Investigacion/`), never in the
+  repository. **That folder is temporary in the cloud: it disappears when the session ends.** Tell
+  the person so before working with their files, and give them the results (reports, texts)
+  in the conversation or as files to download.
+- Access to Crossref may be blocked by the environment's network. If `check_dois` cannot
+  connect, say so plainly; do not guess whether a DOI exists.
+- Do not commit or push unless the person asks for it explicitly.
+
 ## Non-negotiable rules (apply to all code and future agents)
 
 1. **Never invent references.** Only what exists in the project's verified library is cited
