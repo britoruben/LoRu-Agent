@@ -1,5 +1,6 @@
 # Ejecuta las pruebas automáticas cada vez que se suben cambios o se abre una petición de
 # cambios (pull request). Si alguna prueba falla, GitHub lo marca en rojo.
+# Solo Windows: es el sistema del equipo (ver docs/politica-de-pruebas.md).
 name: Pruebas automáticas
 
 on:
@@ -12,8 +13,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sistema: [ubuntu-latest, windows-latest, macos-latest]
-        python: ["3.10", "3.13"]
+        sistema: [windows-latest]
+        python: ["3.13"]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

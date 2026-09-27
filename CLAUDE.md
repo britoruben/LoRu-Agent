@@ -62,6 +62,8 @@ Python: `.venv/bin/python` en macOS/Linux, `.venv\Scripts\python` en Windows):
 
 Tras cambiar cualquier programa, ejecuta las pruebas automáticas y no des el cambio por bueno
 si alguna falla.
+**No amplíes las pruebas** ni hagas pruebas largas: sigue `docs/politica-de-pruebas.md`
+(pruebas mínimas mientras el diseño pueda cambiar; solo Windows; trabajo en la nube).
 
 ## Convenciones
 

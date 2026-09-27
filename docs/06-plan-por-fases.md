@@ -33,7 +33,7 @@ Reglas del plan:
 | Avisos: comillas sin fuente, citas en formato no reconocido, textos escaneados | Hecho |
 | Comprobar DOI en Crossref | Hecho, probado solo con respuestas simuladas |
 | Comandos `/verificar-citas` y `/preparar-pdf`, ayudante `verificador` | Hecho |
-| Pruebas automáticas en GitHub (Windows, macOS, Linux) | Hecho |
+| Pruebas automáticas en GitHub (solo Windows; ver [política de pruebas](politica-de-pruebas.md)) | Hecho |
 | Extraer texto y páginas impresas de PDF (con pypdf, decisión 0007) | Hecho, probado con PDF de prueba; **falta probar con PDF reales de editoriales** |
 | Leer PDF escaneados (OCR) | **Pendiente**: se detectan y se avisa |
 | Comprobación asistida de paráfrasis | **Pendiente** |
