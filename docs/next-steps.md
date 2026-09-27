@@ -16,8 +16,12 @@
 
 - Answer questions about the project in plain Spanish, using the Spanish guides first.
 - Show the demo when asked (see `ejemplos/LEEME.md`, section "Probarlo en Claude Code en la web").
-- Help decide the open questions, the most important being **P-05** (pilot project and
-  discipline); then P-01, P-03, P-04 and P-09 (`docs/07-open-questions.md`). Recommend, but
+- Help decide the open questions (`docs/07-open-questions.md`). The most important is
+  **P-11** (full pipeline or citation-verification layer), based on the review of similar
+  tools in that document; then P-12 (disciplines), P-05 (pilot project), P-13 (licence),
+  P-14 (evidence), P-01, P-03, P-04 and P-09.
+- The project is volunteer work by two people: favour depth in one area and reusing
+  existing tools over building everything. Recommend, but
   do not decide: record each decision only when a team member takes it.
 - Do not start building the next phases until the review ends and the team asks for it.
 
