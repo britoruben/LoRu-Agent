@@ -1,13 +1,25 @@
-# ADR-XXXX · Título
+# Decisión XXXX · Título breve
 
-- **Estado:** propuesta | aceptada | sustituida por ADR-YYYY
+- **Estado:** propuesta | aceptada | sustituida por la decisión YYYY
 - **Fecha:** AAAA-MM-DD
-- **Decisores:**
+- **Quién decide:**
 
-## Contexto
+## En pocas palabras
+
+Una o dos frases que cualquiera entienda.
+
+## Situación
+
+¿Qué problema o necesidad obliga a decidir?
 
 ## Decisión
 
-## Alternativas consideradas
+¿Qué se ha decidido?
+
+## Otras opciones que se valoraron
+
+Cada opción y por qué no se eligió.
 
 ## Consecuencias
+
+¿Qué cambia a partir de ahora? ¿Qué se gana y qué se pierde?

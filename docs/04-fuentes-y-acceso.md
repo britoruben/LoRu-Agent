@@ -1,47 +1,62 @@
-# 04 · Fuentes y acceso
+# 04 · Fuentes: de dónde saca el sistema las publicaciones
 
-> Las condiciones de uso, límites y necesidad de clave de API cambian con frecuencia.
-> **Antes de implementar cada cliente, verificar la documentación oficial vigente** y anotar
-> la fecha de verificación en esta tabla.
+> **En pocas palabras:** el sistema busca primero en **catálogos abiertos y gratuitos** de
+> publicaciones científicas, que se pueden consultar legalmente desde un programa. Para las
+> **bases de datos de pago** de la universidad (Scopus, Web of Science, JSTOR…) todavía hay que
+> averiguar cómo se accede; mientras tanto, el plan es no automatizar nada que las licencias
+> prohíban.
 
-## Fuentes abiertas (flujo B1)
+> **Aviso para quien programe:** las condiciones de uso de estos servicios (límites, necesidad de
+> clave) cambian a menudo. Antes de conectar cada uno, hay que comprobar su documentación oficial
+> y apuntar la fecha en la columna "Comprobado".
 
-| Fuente | Cobertura | Uso principal | Acceso | Verificado |
-|---|---|---|---|---|
-| OpenAlex | Multidisciplinar, muy amplia | Búsqueda, citas, grafo de referencias | API REST | — |
-| Crossref | Metadatos con DOI | Validar DOI y metadatos (R4) | API REST (identificarse con email) | — |
-| Semantic Scholar | Multidisciplinar, fuerte en STEM/biomed | Citas, referencias, "influential citations" | API REST (clave opcional) | — |
-| Unpaywall | Localización de versiones OA | Descarga legal (B4) | API REST (email) | — |
-| PubMed / PMC | Biomedicina | Búsqueda y texto completo OA | NCBI E-utilities | — |
-| arXiv | Física, matemáticas, informática | Preprints | API | — |
-| CORE | Repositorios institucionales | Texto completo OA | API (clave) | — |
-| DOAJ | Revistas OA | Búsqueda | API | — |
-| Dialnet | Hispánico, humanidades y sociales | Búsqueda | **Verificar qué acceso programático existe** | — |
-| Google Scholar | Amplia | — | **No tiene API oficial; no automatizar** | — |
+## Catálogos abiertos
 
-## Fuentes por disciplina (perfil por defecto propuesto)
+Son como el catálogo de una biblioteca, pero de publicaciones de todo el mundo, y ofrecen una
+"ventanilla" para programas (una **API**, ver [glosario](glosario.md)).
 
-| Disciplina | Fuentes base | Estilo de cita habitual | Particularidades |
+| Catálogo | Qué contiene | Para qué lo usamos | Comprobado |
 |---|---|---|---|
-| Humanidades | OpenAlex, Crossref, Dialnet, catálogos de bibliotecas | Chicago, MLA, notas al pie | Muchos libros y capítulos sin DOI; cita con página imprescindible |
+| OpenAlex | Publicaciones de todas las disciplinas; muy amplio | Buscar, contar citas, ver quién cita a quién | — |
+| Crossref | Datos oficiales de las publicaciones con DOI | **Comprobar que una obra existe** y que sus datos son correctos | — |
+| Semantic Scholar | Todas las disciplinas, fuerte en ciencias e ingeniería | Citas y referencias | — |
+| Unpaywall | Dónde está la versión gratuita y legal de un artículo | Conseguir textos legalmente | — |
+| PubMed / PubMed Central | Medicina y biología | Buscar y conseguir textos gratuitos | — |
+| arXiv | Física, matemáticas, informática | Borradores previos a la publicación (*preprints*) | — |
+| CORE | Repositorios de universidades de todo el mundo | Textos completos gratuitos | — |
+| DOAJ | Revistas de acceso abierto | Buscar | — |
+| Dialnet | Publicaciones en español, fuerte en humanidades y ciencias sociales | Buscar | **Hay que averiguar si permite el acceso desde programas** |
+| Google Scholar | Muy amplio | — | **No ofrece ventanilla para programas y prohíbe automatizarlo: no se usará** |
+
+## Qué catálogos usar según la disciplina
+
+Es la configuración que se propondrá por defecto; cada proyecto puede cambiarla.
+
+| Disciplina | Catálogos | Estilo de cita habitual | A tener en cuenta |
+|---|---|---|---|
+| Humanidades | OpenAlex, Crossref, Dialnet, catálogos de bibliotecas | Chicago, MLA, notas al pie | Muchos libros y capítulos no tienen DOI; citar con página es imprescindible |
 | Ciencias sociales | OpenAlex, Crossref, Semantic Scholar, Dialnet | APA 7 | Mezcla de artículos y libros |
-| Salud / biomedicina | PubMed, PMC, OpenAlex, Semantic Scholar | Vancouver, AMA | Revisiones sistemáticas (PRISMA): el proceso debe ser reproducible |
-| Ingeniería / informática | OpenAlex, Semantic Scholar, arXiv, Crossref | IEEE, ACM | Preprints y actas de congresos |
+| Salud y biomedicina | PubMed, PubMed Central, OpenAlex, Semantic Scholar | Vancouver, AMA | En las revisiones sistemáticas (protocolo PRISMA) todo el proceso debe poder repetirse |
+| Ingeniería e informática | OpenAlex, Semantic Scholar, arXiv, Crossref | IEEE, ACM | Muchos *preprints* y actas de congresos |
 
-## Bases privadas (flujo B2) — PENDIENTE
+## Bases de datos de pago — pendiente
 
-Ver P-03 en `07-preguntas-abiertas.md`. Opciones a evaluar:
+Ver las preguntas P-03 y P-04 en [07 · Preguntas abiertas](07-preguntas-abiertas.md). Estas son
+las opciones:
 
-| Opción | Automatizable | Legalidad | Comentario |
+| Opción | ¿Se puede automatizar? | ¿Es legal? | Comentario |
 |---|---|---|---|
-| API oficial (p. ej. Scopus, Web of Science) con clave institucional | Sí | Sí, según licencia | Opción preferente si la institución la ofrece |
-| Portal web con proxy/SSO institucional | Técnicamente frágil | Normalmente **prohíbe descarga automatizada/masiva** | No automatizar; usar descarga manual guiada |
-| Descarga manual guiada por el agente | Semiautomático | Sí | El agente prioriza y enlaza; el usuario descarga a `pdf/` |
-| Exportación desde la base (RIS/BibTeX/CSV) | Sí (importación) | Sí | Muy útil: el usuario exporta resultados y el agente los procesa |
+| **Ventanilla oficial para programas (API)** con clave de la institución (p. ej. Scopus, Web of Science) | Sí | Sí, dentro de la licencia | La mejor opción si la universidad la ofrece |
+| **Entrar por la web** con el usuario de la universidad | Técnicamente es frágil | Las licencias **suelen prohibir** la descarga automática o masiva | No se automatiza; se usa la opción de descarga guiada |
+| **Descarga guiada** | En parte | Sí | El sistema prepara la lista ordenada con enlaces y tú descargas los PDF |
+| **Exportar resultados** desde la base de datos (archivo RIS, BibTeX o tabla) | Sí, la parte de leer el archivo | Sí | Muy útil: buscas en la base de datos, exportas la lista y el sistema la procesa |
 
-## Principios de acceso
+## Normas de acceso
 
-1. Preferir siempre la versión OA legal.
-2. Respetar límites de peticiones y cachear respuestas.
-3. Credenciales en `.env` (nunca en git).
-4. El acceso privado solo funciona **en local**, en la red/credenciales del usuario.
+1. Siempre se prefiere la **versión gratuita y legal**.
+2. No se abusa de los catálogos: se limita el número de consultas y se guardan las respuestas para
+   no repetirlas.
+3. Las claves y contraseñas se guardan solo en tu ordenador, en el archivo `.env`, y nunca se
+   publican.
+4. El acceso a bases de datos de pago solo funciona **en tu ordenador**, con tu conexión y
+   credenciales de la universidad.

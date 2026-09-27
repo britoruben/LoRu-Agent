@@ -1,27 +1,35 @@
-# ADR-0001 · Claude Code en local como entorno principal
+# Decisión 0001 · El sistema funciona en tu ordenador con Claude Code
 
 - **Estado:** aceptada
 - **Fecha:** 2026-09-27
-- **Decisores:** Rubén
+- **Quién decide:** Rubén
 
-## Contexto
+## En pocas palabras
 
-El agente necesita acceso a PDFs locales, al gestor bibliográfico y, potencialmente, a bases de
-datos con acceso institucional (por IP/VPN/credenciales del usuario).
+El asistente se usará con **Claude Code en el ordenador de cada persona**, no en la nube, porque
+necesita acceder a tus PDF, a tu gestor bibliográfico y, en su caso, a las bases de datos de la
+universidad.
+
+## Situación
+
+El sistema tiene que leer documentos que están en tu ordenador, conectarse al gestor bibliográfico
+y, quizá, usar las bases de datos de pago de la universidad, que solo funcionan con tu conexión o
+tu usuario institucional.
 
 ## Decisión
 
-El entorno principal es **Claude Code ejecutado en local**. Se empaqueta como repositorio con
-`CLAUDE.md`, subagentes, skills, hooks y servidores MCP.
+Se usará **Claude Code en el ordenador local** (ver [glosario](../glosario.md)). El proyecto se
+prepara como una carpeta que incluye las instrucciones, los ayudantes, los comandos, las
+comprobaciones automáticas y los "enchufes" (MCP) necesarios.
 
-## Alternativas consideradas
+## Otras opciones que se valoraron
 
-- **Nube (Claude Code en la web):** sin acceso a la red institucional ni a archivos locales. Útil
-  solo para búsquedas en acceso abierto o para desarrollar el propio repositorio.
-- **Aplicación de escritorio de Claude con MCP:** admite servidores MCP, pero no subagentes, skills
-  de proyecto ni hooks con la misma flexibilidad.
+- **Claude Code en la nube** (desde la web): no tiene acceso a la red de la universidad ni a tus
+  archivos. Solo serviría para buscar en catálogos abiertos o para construir el propio proyecto.
+- **La aplicación de escritorio de Claude:** admite "enchufes" (MCP), pero no permite organizar el
+  trabajo en ayudantes, comandos y comprobaciones automáticas con la misma flexibilidad.
 
 ## Consecuencias
 
-- El acceso privado nunca se ejecuta en la nube.
-- Cada usuario configura sus credenciales en `.env` local.
+- El acceso a bases de datos de pago nunca se hará desde la nube.
+- Cada persona guarda sus claves y contraseñas en su propio ordenador (archivo `.env`).

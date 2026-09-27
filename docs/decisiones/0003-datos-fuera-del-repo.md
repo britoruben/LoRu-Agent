@@ -1,28 +1,37 @@
-# ADR-0003 · Datos de investigación fuera del repositorio
+# Decisión 0003 · Los datos de investigación se guardan aparte del programa
 
 - **Estado:** aceptada
 - **Fecha:** 2026-09-27
-- **Decisores:** Rubén
+- **Quién decide:** Rubén
 
-## Contexto
+## En pocas palabras
 
-Cada investigación genera PDFs (con copyright), texto extraído, fichas, biblioteca y borradores.
-Hay que separar la herramienta (compartible, versionada) de los datos (privados, voluminosos).
+El programa está en una carpeta y tus investigaciones en otra (por defecto, `Investigacion`, dentro
+de tu carpeta personal). Así no se pierde trabajo al actualizar el programa y los PDF con derechos
+de autor nunca se publican por error.
+
+## Situación
+
+Cada investigación genera PDF (con derechos de autor), textos extraídos, fichas de lectura y
+borradores. El programa, en cambio, se guarda y se comparte en GitHub. Hay que mantenerlos
+separados.
 
 ## Decisión
 
-Los datos viven en una carpeta externa configurable mediante `LORU_DATOS` (por defecto
-`~/Investigacion`), con un subdirectorio por proyecto.
+Los datos de cada investigación se guardan en una **carpeta aparte**, con una subcarpeta por
+proyecto. La ubicación se puede cambiar en el archivo `.env` (en la línea `LORU_DATOS`).
 
-## Alternativas consideradas
+## Otras opciones que se valoraron
 
-- **Dentro del repo, ignorado por git:** más simple, pero mezcla herramienta y datos y se pierde al
-  borrar el clon.
-- **Repo de datos separado por proyecto:** buen versionado de fichas y borradores, pero añade
-  complejidad; puede adoptarse más adelante sobre la carpeta externa sin cambiar la arquitectura.
+- **Dentro de la carpeta del programa**, excluida de GitHub: más sencillo, pero mezcla programa y
+  datos, y si se borra el programa se pierde el trabajo.
+- **Una carpeta en GitHub por cada investigación** (sin los PDF): guarda el historial de cambios de
+  fichas y borradores, pero es más complicado. Se puede añadir más adelante sin cambiar nada del
+  diseño.
 
 ## Consecuencias
 
-- Todas las herramientas resuelven rutas a partir de `LORU_DATOS`.
-- La carpeta se puede sincronizar para trabajar en equipo (Rubén y Lola).
-- `.gitignore` mantiene reglas de seguridad por si alguien copia datos al repo por error.
+- Todas las herramientas buscan los datos en la carpeta indicada en `LORU_DATOS`.
+- La carpeta se puede sincronizar (Drive, OneDrive…) para trabajar en equipo.
+- Por seguridad, la carpeta del programa está configurada para no publicar nunca archivos PDF, aunque
+  alguien los copie en ella por error (archivo `.gitignore`).

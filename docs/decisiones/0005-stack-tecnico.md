@@ -1,29 +1,36 @@
-# ADR-0005 · Stack técnico, formatos, idiomas y modelo de uso
+# Decisión 0005 · Herramientas, formatos, idiomas y suscripción
 
 - **Estado:** aceptada
 - **Fecha:** 2026-09-27
-- **Decisores:** Rubén
-- **Cierra:** P-02, P-06, P-07, P-08
+- **Quién decide:** Rubén
+- **Responde a:** P-02, P-06, P-07 y P-08
+
+## En pocas palabras
+
+Los programas se escriben en **Python**; el artículo se entrega en **Word y PDF**; se busca en
+**español e inglés**; y Claude se usa con una **suscripción Pro o Max** (precio fijo al mes).
 
 ## Decisión
 
-| Tema | Decisión |
-|---|---|
-| Lenguaje de herramientas (P-02) | **Python** (PDF, OCR, bibliometría, redes, embeddings) |
-| Formatos de salida (P-06) | **Markdown** como fuente; exportación con Pandoc a **.docx** y **LaTeX/PDF** |
-| Idiomas (P-07) | Búsqueda bilingüe **español + inglés**; redacción en el idioma de la revista |
-| Uso de Claude (P-08) | **Claude Code con plan Pro/Max** (coste fijo) |
+| Tema | Decisión | Por qué |
+|---|---|---|
+| Lenguaje de programación (P-02) | **Python** | Es el más usado para trabajar con PDF, textos y datos bibliográficos, y de los más fáciles de leer |
+| Formatos de entrega (P-06) | **Word** y **PDF** (vía LaTeX). El texto de trabajo se guarda en Markdown, un formato de texto sencillo | Word para enviar a revistas y revisar con control de cambios; LaTeX para las revistas de ciencias que lo exigen |
+| Idiomas (P-07) | Se busca en **español e inglés**; se escribe en el idioma de la revista | Cubrir la literatura hispana e internacional |
+| Uso de Claude (P-08) | **Suscripción Pro o Max** | Coste fijo y previsible |
 
-## Alternativas consideradas
+## Otras opciones que se valoraron
 
-- TypeScript: bueno para servidores MCP, pero ecosistema científico más pobre.
-- API por uso: más control por proyecto, pero coste variable y más configuración.
+- **TypeScript** en lugar de Python: útil para ciertos "enchufes" (MCP), pero con menos
+  herramientas para trabajo académico.
+- **Pago por uso (API)**: más control del gasto por proyecto, pero coste variable y más
+  configuración.
 
 ## Consecuencias
 
-- Dependencias externas: Python 3.11+, Pandoc; más adelante OCR (p. ej. Tesseract) y un modelo de
-  embeddings para la verificación asistida (a elegir en fase 2).
-- **Los planes Pro/Max tienen límites de uso por ventana de tiempo.** Por eso los flujos largos
-  (lectura de 40+ documentos) deben ser **reanudables**: el estado se guarda en disco tras cada
-  documento y un comando puede continuar donde se quedó.
-- La plantilla `proyecto.yaml` incluye `idiomas: [es, en]` por defecto.
+- Habrá que instalar Python y Pandoc (el conversor a Word y PDF). Más adelante, también una
+  herramienta de reconocimiento de texto (OCR) y otra de búsqueda por significado. Todo vendrá
+  explicado paso a paso en la guía de instalación.
+- **Las suscripciones tienen un límite de uso cada pocas horas.** Por eso los procesos largos (leer
+  40 documentos o más) se **guardan tras cada documento** y se pueden retomar donde se quedaron.
+- La ficha de cada proyecto trae por defecto los idiomas español e inglés.

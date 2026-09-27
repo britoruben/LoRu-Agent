@@ -1,27 +1,40 @@
-# ADR-0004 · Autonomía con puntos de control fijos
+# Decisión 0004 · El sistema trabaja solo, pero se detiene en cuatro momentos
 
 - **Estado:** aceptada
 - **Fecha:** 2026-09-27
-- **Decisores:** Rubén
+- **Quién decide:** Rubén
 
-## Contexto
+## En pocas palabras
 
-Hay que equilibrar velocidad y control. Un error en la selección de términos o del corpus se
-propaga a todo el estado de la cuestión y al artículo.
+El sistema hace el trabajo sin preguntar a cada paso, pero se detiene para que decidas en cuatro
+momentos clave: antes de buscar, al elegir las obras, antes de escribir y antes de dar el texto por
+terminado.
+
+## Situación
+
+Hay que equilibrar rapidez y control. Un error al principio (palabras de búsqueda mal elegidas, una
+obra importante que se queda fuera) arrastra sus consecuencias al estado de la cuestión y al
+artículo.
 
 ## Decisión
 
-Cuatro puntos de control humano: PC-1 (términos de búsqueda), PC-2 (selección del corpus, en cada
-ronda), PC-3 (esquema del artículo) y PC-4 (versión final + informe de verificación). Entre ellos,
-el agente es autónomo. Detalle en `docs/00-vision.md`.
+Cuatro **puntos de control** en los que el sistema espera tu aprobación:
 
-## Alternativas consideradas
+1. las palabras de búsqueda;
+2. las obras que entran en el estudio (en cada ronda);
+3. el esquema del artículo;
+4. la versión final, con el informe de comprobación de citas.
 
-- **Control en cada tarea:** más seguro, demasiado lento para el uso habitual.
-- **Solo revisión final:** los errores tempranos quedan ocultos.
-- **Nivel configurable:** útil en el futuro, pero añade complejidad ahora.
+Entre ellos, el sistema trabaja solo. Detalle en [00 · Visión](../00-vision.md).
+
+## Otras opciones que se valoraron
+
+- **Consultar en cada paso:** más seguro, pero demasiado lento para el uso habitual.
+- **Consultar solo al final:** los errores del principio quedarían ocultos.
+- **Que cada proyecto elija cuánto se le consulta:** útil en el futuro, pero ahora complica la
+  construcción.
 
 ## Consecuencias
 
-- Las skills de orquestación se dividen en fases que terminan en un punto de control.
-- El estado del proyecto debe persistir en disco para poder reanudar tras cada aprobación.
+- Los comandos se dividen en tramos que terminan en un punto de control.
+- El trabajo se guarda en la carpeta del proyecto para poder retomarlo después de cada aprobación.

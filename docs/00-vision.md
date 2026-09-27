@@ -1,58 +1,70 @@
-# 00 · Visión
+# 00 · Visión: qué perseguimos y qué no
 
-## Problema
+> **En pocas palabras:** queremos un asistente que haga el trabajo mecánico de la investigación
+> bibliográfica y de la redacción (buscar, cribar, conseguir textos, extraer, comprobar citas) sin
+> el gran peligro de las IA: inventar referencias o citas. Las decisiones intelectuales siguen
+> siendo de la persona que investiga.
 
-La revisión bibliográfica y la redacción académica consumen la mayor parte del tiempo en tareas
-mecánicas (buscar, cribar, descargar, extraer, comprobar citas) y son vulnerables a un riesgo grave
-cuando se usan LLM: **referencias inventadas, DOIs erróneos y citas literales falsas**.
+## El problema
 
-## Objetivo
+Revisar la bibliografía y redactar un artículo exige mucho trabajo mecánico: buscar en catálogos,
+descartar lo que no sirve, conseguir los textos, tomar notas, comprobar citas y páginas… Las IA
+pueden ayudar mucho, pero tienen un defecto grave: a veces **se inventan referencias** que no
+existen, dan **identificadores de publicación (DOI) incorrectos** o **alteran citas literales**.
+En un trabajo académico eso es inadmisible.
 
-Un repositorio que, clonado en local y abierto con Claude Code, proporcione agentes, comandos y
-herramientas para:
+## El objetivo
 
-- **Flujo B (bibliográfico):** de una pregunta de investigación a un *estado de la cuestión* trazable,
-  con identificación de disputas, errores y vacíos.
-- **Flujo R (redacción):** de ese estado de la cuestión + documentos propios a un borrador de artículo
-  adaptado a una revista concreta, con **todas las citas verificadas**.
+Que al descargar este proyecto y abrirlo con Claude Code en tu ordenador tengas un equipo de
+ayudantes capaz de:
 
-## Alcance multidisciplinar
+- **Revisión bibliográfica:** pasar de una pregunta de investigación a un estado de la cuestión
+  en el que cada afirmación remita a una obra y una página, con las disputas, errores y vacíos del
+  debate.
+- **Redacción:** pasar de ese estado de la cuestión y tus propios materiales a un borrador de
+  artículo adaptado a una revista concreta, con **todas las citas comprobadas**.
 
-El sistema debe servir para humanidades, ciencias sociales, salud/biomedicina, ingeniería e
-informática. Esto implica que fuentes, estilo de cita y criterios de relevancia **no pueden estar
-fijados en el código**: se configuran por proyecto mediante un *perfil disciplinar*
-(ver `01-arquitectura.md`).
+## Para todas las disciplinas
 
-## No-objetivos (explícitos)
+Debe servir para humanidades, ciencias sociales, salud y biomedicina, e ingeniería e informática.
+Como cada disciplina tiene sus catálogos, sus estilos de cita y su manera de valorar las obras,
+nada de esto está fijado de antemano: se configura en la **ficha de cada proyecto** (ver
+[01 · Arquitectura](01-arquitectura.md)).
 
-- **No** producir artículos publicables sin revisión humana. El sistema es un asistente; la autoría
-  y las decisiones intelectuales son del investigador.
-- **No** eludir licencias: nada de descargas masivas desde plataformas de suscripción, ni fuentes
+## Lo que NO pretende
+
+- **No** producir artículos publicables sin revisión humana. Es un asistente: la autoría y las
+  decisiones intelectuales son de quien investiga.
+- **No** saltarse licencias: nada de descargas masivas desde plataformas de pago ni de webs
   piratas.
-- **No** ejecución desatendida en la nube con acceso institucional (el acceso privado depende de la
-  red/credenciales del usuario en local).
+- **No** usar el acceso de la universidad desde la nube: el acceso a bases de datos privadas solo
+  funcionará en tu ordenador, con tus credenciales.
 
-## Principios de diseño
+## Principios
 
-1. **Determinista donde se pueda, LLM donde aporte.** APIs, extracción de PDF, formateo de citas y
-   verificación son código. El LLM lee, clasifica, sintetiza y redacta.
-2. **Verificación estructural, no por prompt.** Pedir al modelo "no inventes" no basta; el sistema
-   debe impedir que llegue al texto final una cita no verificada.
-3. **Trazabilidad total.** Cada afirmación → documento → página.
-4. **Humano en el bucle en puntos de control fijos** (ver abajo); entre ellos, el sistema trabaja
-   de forma autónoma.
-5. **Límites explícitos** de profundidad, número de documentos y coste en cada ejecución.
+1. **Programas para lo comprobable, IA para lo interpretativo.** Buscar, extraer texto, dar
+   formato a las citas y verificarlas lo hacen programas, que siempre dan el mismo resultado. La
+   IA lee, clasifica, resume y redacta.
+2. **Las citas se protegen con el diseño, no con buenas intenciones.** No basta con pedirle a la
+   IA que "no invente". El sistema debe impedir que una cita no comprobada llegue al texto final.
+3. **Todo se puede rastrear.** Cada afirmación remite a una obra y una página.
+4. **La persona decide en momentos fijos** (ver abajo). Entre ellos, el sistema trabaja solo.
+5. **Siempre con límites.** Cada proceso tiene un máximo de documentos, de rondas y de uso, para
+   no desbordarse.
 
-## Puntos de control humano (decisión ADR-0004)
+## Los cuatro puntos de control (decisión 0004)
 
-El agente se detiene y espera aprobación solo en estos momentos:
+El sistema se detiene y espera tu aprobación solo en estos momentos:
 
-| ID | Momento | Qué valida el investigador | Tareas afectadas |
+| Punto | Cuándo | Qué decides | Pasos afectados |
 |---|---|---|---|
-| **PC-1** | Antes de buscar | Términos de búsqueda, sinónimos, fuentes, periodo, idiomas | B1–B2 |
-| **PC-2** | Tras el ranking (y en cada ronda de snowballing) | Selección del corpus: `candidatos.csv` → `seleccion.csv` | B3, B6 |
-| **PC-3** | Antes de redactar | Esquema del artículo, argumento central, estructura | R1 |
-| **PC-4** | Antes de exportar | Versión final + informe de verificación de citas | R2–R4 |
+| **1** | Antes de buscar | Las palabras de búsqueda, los catálogos, el periodo y los idiomas | B1–B2 |
+| **2** | Después de ordenar los resultados, y en cada ronda de bola de nieve | Qué obras entran en el estudio | B3, B6 |
+| **3** | Antes de escribir | El esquema del artículo y su argumento central | R1 |
+| **4** | Antes de dar el texto por terminado | La versión final, junto con el informe de comprobación de citas | R2–R4 |
 
-Entre puntos de control, el agente informa del progreso pero no pregunta. Si encuentra un bloqueo
-(fuente inaccesible, PDF ilegible, límite alcanzado) lo registra y continúa con el resto.
+Entre un punto y otro, el sistema te informa de lo que hace pero no te pregunta. Si tropieza con
+un problema (una obra que no se consigue, un PDF ilegible, un límite alcanzado), lo apunta y sigue
+con lo demás.
+
+En la documentación técnica estos puntos se llaman **PC-1, PC-2, PC-3 y PC-4**.

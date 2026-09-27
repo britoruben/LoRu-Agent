@@ -1,28 +1,42 @@
 # LoRu-Agent
 
-Agente de investigación para **Claude Code** (uso local) que asiste en dos grandes flujos:
+Asistente de investigación basado en **Claude** para dos tareas:
 
-1. **Gestión bibliográfica** — búsqueda, selección, descarga legal, análisis de contenido y de referencias (snowballing), y generación de un *estado de la cuestión* con disputas, errores y vacíos.
-2. **Génesis de artículos** — redacción a partir del estado de la cuestión y documentos propios, adaptada a revista/editorial, con citación literal paginada y **verificación de toda cita**.
+1. **Revisión bibliográfica:** buscar lo publicado sobre un tema, elegir lo importante, conseguir
+   los textos por vías legales, leerlos, seguir sus referencias y redactar un **estado de la
+   cuestión** con sus consensos, disputas, errores y vacíos.
+2. **Redacción de artículos:** escribir a partir de ese estado de la cuestión y de tus materiales,
+   según las normas de la revista elegida y **comprobando que cada cita es real y exacta**.
 
-> **Estado: FASE 0 — Diseño.** Este repositorio contiene solo arquitectura y documentación.
-> Todavía no hay código ejecutable. Ver [`docs/06-roadmap.md`](docs/06-roadmap.md).
+> **Estado actual: fase 0, diseño.** Por ahora solo existe la documentación; todavía no hay un
+> programa que se pueda usar. Ver el [plan por fases](docs/06-plan-por-fases.md).
 
-## Documentación
+## Por dónde empezar
 
-| Documento | Contenido |
+1. **[Guía: qué es y cómo funciona](docs/guia.md)**, escrita para cualquier lector, sin
+   conocimientos técnicos.
+2. **[Glosario](docs/glosario.md)**: todas las palabras técnicas explicadas.
+3. **[Preguntas abiertas](docs/07-preguntas-abiertas.md)**: lo que falta por decidir.
+
+## Toda la documentación
+
+Cada documento empieza con un recuadro **"En pocas palabras"**. Las secciones marcadas
+**"Detalle técnico"** son para quien programe y se pueden saltar.
+
+| Documento | De qué trata |
 |---|---|
-| [`docs/00-vision.md`](docs/00-vision.md) | Objetivos, alcance, no-objetivos y principios |
-| [`docs/01-arquitectura.md`](docs/01-arquitectura.md) | Componentes, flujo de datos, estructura del repo |
-| [`docs/02-agente-bibliografico.md`](docs/02-agente-bibliografico.md) | Especificación tareas B1–B7 |
-| [`docs/03-agente-redaccion.md`](docs/03-agente-redaccion.md) | Especificación tareas R1–R4 |
-| [`docs/04-fuentes-y-acceso.md`](docs/04-fuentes-y-acceso.md) | Catálogo de fuentes por disciplina y modos de acceso |
-| [`docs/05-verificacion-citas.md`](docs/05-verificacion-citas.md) | Diseño anti-alucinación de citas |
-| [`docs/06-roadmap.md`](docs/06-roadmap.md) | Fases, entregables y criterios de aceptación |
-| [`docs/07-preguntas-abiertas.md`](docs/07-preguntas-abiertas.md) | Decisiones pendientes (agenda reunión) |
-| [`docs/decisiones/`](docs/decisiones/) | Registro de decisiones de arquitectura (ADR) |
+| [Guía](docs/guia.md) | Qué es, cómo se usa y por qué te puedes fiar de las citas |
+| [Glosario](docs/glosario.md) | Palabras técnicas explicadas |
+| [00 · Visión](docs/00-vision.md) | Qué perseguimos, qué no y los cuatro momentos en que el sistema te consulta |
+| [01 · Arquitectura](docs/01-arquitectura.md) | Cómo encajan las piezas y dónde se guarda el trabajo |
+| [02 · Flujo bibliográfico](docs/02-agente-bibliografico.md) | De la pregunta al estado de la cuestión, paso a paso |
+| [03 · Flujo de redacción](docs/03-agente-redaccion.md) | Del estado de la cuestión al artículo |
+| [04 · Fuentes](docs/04-fuentes-y-acceso.md) | Dónde se buscan las publicaciones y cómo se accede a ellas |
+| [05 · Verificación de citas](docs/05-verificacion-citas.md) | Cómo se evita que la IA invente citas |
+| [06 · Plan por fases](docs/06-plan-por-fases.md) | En qué orden se construye |
+| [07 · Preguntas abiertas](docs/07-preguntas-abiertas.md) | Lo que falta por decidir |
+| [Decisiones](docs/decisiones/) | Qué se ha decidido y por qué |
 
 ## Equipo
 
-- Rubén — arquitectura y documentación
-- Lola — implementación y acceso a bases de datos (por confirmar)
+Rubén y Lola.
