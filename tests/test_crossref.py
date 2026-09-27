@@ -1,18 +1,18 @@
 """
-Pruebas automáticas del comprobador de DOI.
+Automatic tests of the DOI checker.
 
-No se conectan a internet: en lugar de preguntar a Crossref, usan respuestas preparadas que
-imitan las de Crossref. Así las pruebas funcionan en cualquier ordenador y siempre igual.
-Para probarlo contra el Crossref real, ver ejemplos/comprobar-doi/LEEME.md.
+They do not connect to the internet: instead of asking Crossref, they use prepared answers
+that imitate Crossref's. So the tests work on any computer and always the same way.
+To try it against the real Crossref, see ejemplos/comprobar-doi/LEEME.md.
 """
 
 import unittest
 
-from herramientas.fuentes.crossref import (
-    CON_DISCREPANCIAS, CONFIRMADA, NO_EXISTE, comparar_con_crossref, comprobar_obra,
+from tools.sources.crossref import (
+    CONFIRMED, MISMATCHED, NOT_FOUND, check_work, compare_with_crossref,
 )
 
-OBRA = {
+WORK = {
     "id": "searle1980",
     "title": "Minds, brains, and programs",
     "author": [{"family": "Searle", "given": "John R."}],
@@ -20,42 +20,42 @@ OBRA = {
     "DOI": "10.1017/S0140525X00005756",
 }
 
-RESPUESTA_DE_CROSSREF = {
+CROSSREF_ANSWER = {
     "title": ["Minds, brains, and programs"],
     "author": [{"family": "Searle", "given": "John R."}],
     "issued": {"date-parts": [[1980, 9]]},
 }
 
 
-def crossref_que_responde(respuesta):
-    """Imita a Crossref devolviendo siempre la misma respuesta."""
-    return lambda doi, correo: respuesta
+def crossref_answering(answer):
+    """Imitate Crossref by always returning the same answer."""
+    return lambda doi, email: answer
 
 
-class PruebasDelComprobadorDeDOI(unittest.TestCase):
+class DoiCheckerTests(unittest.TestCase):
 
-    def test_confirma_una_obra_cuyos_datos_coinciden(self):
-        resultado = comprobar_obra(OBRA, "prueba@ejemplo.org", crossref_que_responde(RESPUESTA_DE_CROSSREF))
-        self.assertEqual(resultado.resultado, CONFIRMADA)
+    def test_confirms_a_work_whose_data_match(self):
+        result = check_work(WORK, "prueba@ejemplo.org", crossref_answering(CROSSREF_ANSWER))
+        self.assertEqual(result.outcome, CONFIRMED)
 
-    def test_detecta_un_doi_que_no_existe(self):
-        resultado = comprobar_obra(OBRA, "prueba@ejemplo.org", crossref_que_responde(None))
-        self.assertEqual(resultado.resultado, NO_EXISTE)
+    def test_detects_a_doi_that_does_not_exist(self):
+        result = check_work(WORK, "prueba@ejemplo.org", crossref_answering(None))
+        self.assertEqual(result.outcome, NOT_FOUND)
 
-    def test_detecta_un_anio_equivocado(self):
-        obra = dict(OBRA, issued={"date-parts": [[1981]]})
-        resultado = comprobar_obra(obra, "prueba@ejemplo.org", crossref_que_responde(RESPUESTA_DE_CROSSREF))
-        self.assertEqual(resultado.resultado, CON_DISCREPANCIAS)
-        self.assertIn("Año distinto", resultado.discrepancias[0])
+    def test_detects_a_wrong_year(self):
+        work = dict(WORK, issued={"date-parts": [[1981]]})
+        result = check_work(work, "prueba@ejemplo.org", crossref_answering(CROSSREF_ANSWER))
+        self.assertEqual(result.outcome, MISMATCHED)
+        self.assertIn("Año distinto", result.mismatches[0])
 
-    def test_detecta_un_doi_real_pero_de_otra_obra(self):
-        otra = {"title": ["Deep learning"], "author": [{"family": "LeCun"}], "issued": {"date-parts": [[2015]]}}
-        diferencias = comparar_con_crossref(OBRA, otra)
-        self.assertEqual(len(diferencias), 3)  # título, año y autor
+    def test_detects_a_real_doi_of_another_work(self):
+        other = {"title": ["Deep learning"], "author": [{"family": "LeCun"}], "issued": {"date-parts": [[2015]]}}
+        differences = compare_with_crossref(WORK, other)
+        self.assertEqual(len(differences), 3)  # title, year and author
 
-    def test_no_se_confunde_por_tildes_ni_mayusculas(self):
-        obra = dict(OBRA, title="MINDS, BRAINS AND PROGRAMS", author=[{"family": "Séarle"}])
-        self.assertEqual(comparar_con_crossref(obra, RESPUESTA_DE_CROSSREF), [])
+    def test_is_not_fooled_by_accents_or_capitals(self):
+        work = dict(WORK, title="MINDS, BRAINS AND PROGRAMS", author=[{"family": "Séarle"}])
+        self.assertEqual(compare_with_crossref(work, CROSSREF_ANSWER), [])
 
 
 if __name__ == "__main__":

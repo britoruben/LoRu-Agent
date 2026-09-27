@@ -23,8 +23,8 @@ tabla, apúntalo.
 En la terminal, dentro de la carpeta `LoRu-Agent`, con conexión a internet:
 
 ```
-python3 -m herramientas.fuentes.comprobar_dois ejemplos/comprobar-doi/biblioteca.json --correo tu@correo.org
+python3 -m tools.sources.check_dois ejemplos/comprobar-doi/biblioteca.json --email tu@correo.org
 ```
 
-Con `--guardar`, las obras confirmadas quedan marcadas como comprobadas en `biblioteca.json`
+Con `--save`, las obras confirmadas quedan marcadas como comprobadas en `biblioteca.json`
 (las que tienen problemas nunca se marcan).

@@ -49,17 +49,17 @@ el verificador da exactamente los mismos resultados que se ven arriba.
 Para repetirlo (ver apartado 5 para los requisitos):
 
 ```
-python -m herramientas.pdf.extraer_texto ejemplos/proyecto-demo/pdf/ficticia2021.pdf --proyecto ejemplos/proyecto-demo --clave ficticia2021
+python -m tools.pdf.extract_text ejemplos/proyecto-demo/pdf/ficticia2021.pdf --project ejemplos/proyecto-demo --key ficticia2021
 ```
 
-O, en Claude Code: `/preparar-pdf ejemplos/proyecto-demo/pdf/ficticia2021.pdf` (clave `ficticia2021`).
+O, en Claude Code: `/prepare-pdf ejemplos/proyecto-demo/pdf/ficticia2021.pdf` (clave `ficticia2021`).
 
 ## 4. Probarlo con Claude Code
 
 Requisitos: haber seguido la [guía de instalación](../docs/instalacion.md).
 
 1. Abre la terminal en la carpeta `LoRu-Agent` y escribe `claude`.
-2. Escribe: `/verificar-citas ejemplos/proyecto-demo/borradores/borrador-con-errores.md`
+2. Escribe: `/verify-citations ejemplos/proyecto-demo/borradores/borrador-con-errores.md`
 3. Claude encarga la tarea al ayudante verificador y te explica los resultados.
 
 Prueba también a pedirle, en lenguaje normal: *"Corrige las páginas que el informe permite
@@ -72,7 +72,7 @@ En la terminal, dentro de la carpeta `LoRu-Agent` y con el entorno virtual activ
 [guía de instalación](../docs/instalacion.md)):
 
 ```
-python -m herramientas.verificacion.verificar_citas ejemplos/proyecto-demo/borradores/borrador-con-errores.md
+python -m tools.verification.verify_citations ejemplos/proyecto-demo/borradores/borrador-con-errores.md
 ```
 
 Para comprobar que todo el programa funciona, ejecuta las **pruebas automáticas** (más de 50

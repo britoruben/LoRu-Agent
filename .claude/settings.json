@@ -1,12 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 -m herramientas.verificacion.verificar_citas:*)",
-      "Bash(python -m herramientas.verificacion.verificar_citas:*)",
-      "Bash(python3 -m herramientas.pdf.extraer_texto:*)",
-      "Bash(python -m herramientas.pdf.extraer_texto:*)",
-      "Bash(python3 -m herramientas.fuentes.comprobar_dois:*)",
-      "Bash(python -m herramientas.fuentes.comprobar_dois:*)",
+      "Bash(python3 -m tools.verification.verify_citations:*)",
+      "Bash(python -m tools.verification.verify_citations:*)",
+      "Bash(python3 -m tools.pdf.extract_text:*)",
+      "Bash(python -m tools.pdf.extract_text:*)",
+      "Bash(python3 -m tools.sources.check_dois:*)",
+      "Bash(python -m tools.sources.check_dois:*)",
       "Bash(python3 -m unittest:*)",
       "Bash(python -m unittest:*)"
     ]
