@@ -10,6 +10,8 @@ funciona ya, `ejemplos/LEEME.md`; para instalar, `docs/instalacion.md`. Antes de
 en qué fase estamos y en `docs/07-preguntas-abiertas.md` si la decisión que necesitas sigue
 abierta. Si está abierta, pregunta; no la tomes por tu cuenta.
 
+**Al empezar una sesión, lee `docs/proximos-pasos.md`.**
+
 ## Reglas no negociables (aplican a todo el código y agentes futuros)
 
 1. **Nunca inventar referencias.** Solo se cita lo que existe en la biblioteca verificada del

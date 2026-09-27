@@ -16,5 +16,6 @@ decisiones de arquitectura").
 | [0005](0005-stack-tecnico.md) | Python, Word/PDF, español e inglés y suscripción Pro/Max | Aceptada |
 | [0006](0006-adelantar-verificador.md) | Adelantar un prototipo del verificador de citas | Aceptada |
 | [0007](0007-pypdf-para-leer-pdf.md) | Usar pypdf (y no MarkItDown) para leer los PDF | Aceptada |
+| [0008](0008-idioma-nucleo-en-ingles.md) | Núcleo del agente en inglés; guías para personas en español | Aceptada, pendiente de aplicar |
 
 Para añadir una decisión, copia [`0000-plantilla.md`](0000-plantilla.md) con el número siguiente.
