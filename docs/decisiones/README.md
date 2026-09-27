@@ -15,5 +15,6 @@ decisiones de arquitectura").
 | [0004](0004-puntos-de-control.md) | El sistema trabaja solo, pero se detiene en cuatro momentos para que decidas | Aceptada |
 | [0005](0005-stack-tecnico.md) | Python, Word/PDF, español e inglés y suscripción Pro/Max | Aceptada |
 | [0006](0006-adelantar-verificador.md) | Adelantar un prototipo del verificador de citas | Aceptada |
+| [0007](0007-pypdf-para-leer-pdf.md) | Usar pypdf (y no MarkItDown) para leer los PDF | Aceptada |
 
 Para añadir una decisión, copia [`0000-plantilla.md`](0000-plantilla.md) con el número siguiente.

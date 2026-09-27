@@ -110,6 +110,8 @@ Más detalle en [05 · Verificación de citas](05-verificacion-citas.md).
 
 ## 7. Qué se puede probar ya
 
+Para instalarlo en tu ordenador, sigue la [guía de instalación](instalacion.md).
+
 Ya funciona un primer prototipo del **verificador de citas**, con un proyecto de ejemplo con
 errores puestos a propósito. Ver [ejemplos](../ejemplos/LEEME.md): se puede ver el resultado
 sin instalar nada.
@@ -137,6 +139,7 @@ sin instalar nada.
 | Qué se ha decidido y por qué | [Decisiones](decisiones/) |
 | Qué significa una palabra | [Glosario](glosario.md) |
 | Qué se puede probar ya | [Ejemplos](../ejemplos/LEEME.md) |
+| Cómo se instala | [Instalación](instalacion.md) |
 
 **Cómo leer los documentos:** cada uno empieza con un recuadro **"En pocas palabras"** y está
 escrito para cualquier lector. Las partes marcadas **"Detalle técnico"** son para quien programe;

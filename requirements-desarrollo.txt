@@ -1,0 +1,3 @@
+# Paquetes que solo hacen falta para regenerar los PDF de prueba (tests/datos).
+-r requirements.txt
+reportlab>=4.0

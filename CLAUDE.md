@@ -6,7 +6,7 @@ Instrucciones para Claude Code al trabajar en este repositorio.
 
 FASE 0 (diseño) terminada en lo esencial, con un **prototipo del verificador de citas** (fase 2)
 adelantado (decisión 0006). Para entender el proyecto, empieza por `docs/guia.md`; para ver qué
-funciona ya, `ejemplos/LEEME.md`. Antes de implementar algo, comprueba en `docs/06-plan-por-fases.md`
+funciona ya, `ejemplos/LEEME.md`; para instalar, `docs/instalacion.md`. Antes de implementar algo, comprueba en `docs/06-plan-por-fases.md`
 en qué fase estamos y en `docs/07-preguntas-abiertas.md` si la decisión que necesitas sigue
 abierta. Si está abierta, pregunta; no la tomes por tu cuenta.
 
@@ -50,9 +50,12 @@ pensamiento crítico, no en agradar.
 | Qué | Dónde | Para qué |
 |---|---|---|
 | `/verificar-citas` | `.claude/skills/verificar-citas/` | Verificar las citas de un borrador |
+| `/preparar-pdf` | `.claude/skills/preparar-pdf/` | Sacar el texto de un PDF con su página impresa |
 | Ayudante `verificador` | `.claude/agents/verificador.md` | Ejecuta el verificador e informa; no modifica nada |
 
-Programas (se ejecutan desde la carpeta del repositorio):
+Programas (se ejecutan desde la carpeta del repositorio; si existe el entorno `.venv`, usa su
+Python: `.venv/bin/python` en macOS/Linux, `.venv\Scripts\python` en Windows):
+- `python3 -m herramientas.pdf.extraer_texto LIBRO.pdf --proyecto CARPETA --clave CLAVE [--primera-pagina N]`
 - `python3 -m herramientas.verificacion.verificar_citas BORRADOR.md`
 - `python3 -m herramientas.fuentes.comprobar_dois biblioteca.json [--guardar]` (necesita internet)
 - Pruebas automáticas: `python3 -m unittest -v`

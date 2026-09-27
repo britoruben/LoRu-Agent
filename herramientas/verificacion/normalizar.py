@@ -48,7 +48,7 @@ def normalizar_texto(texto: str) -> str:
     # Une las palabras partidas con guion al final de línea: "concien-\ncia" -> "conciencia".
     # Se hace antes de unificar los guiones para no confundirlos con una raya (—) de
     # diálogo o de inciso que caiga a final de línea.
-    texto = re.sub(r"(\w)[-‐‑\u00ad][ \t]*\n\s*(\w)", r"\1\2", texto)
+    texto = re.sub(r"(\w)[-‐‑\u00ad][ \t\r]*\n\s*(\w)", r"\1\2", texto)
     for signo, sustituto in SIGNOS_EQUIVALENTES.items():
         texto = texto.replace(signo, sustituto)
     texto = re.sub(r"\s+", " ", texto)

@@ -2,8 +2,13 @@
   "permissions": {
     "allow": [
       "Bash(python3 -m herramientas.verificacion.verificar_citas:*)",
+      "Bash(python -m herramientas.verificacion.verificar_citas:*)",
+      "Bash(python3 -m herramientas.pdf.extraer_texto:*)",
+      "Bash(python -m herramientas.pdf.extraer_texto:*)",
       "Bash(python3 -m herramientas.fuentes.comprobar_dois:*)",
-      "Bash(python3 -m unittest:*)"
+      "Bash(python -m herramientas.fuentes.comprobar_dois:*)",
+      "Bash(python3 -m unittest:*)",
+      "Bash(python -m unittest:*)"
     ]
   }
 }

@@ -14,8 +14,10 @@ que exporta Zotero), con algunos campos propios de este proyecto:
     "verificacion": "doi" | "isbn" | "manual" | "pendiente"
     "texto_local": ruta al archivo con el texto, relativa a la carpeta del proyecto
 
-Formato de un archivo de texto (texto/<clave>.json):
-    {"calidad": "ok" | "ocr",
+Formato de un archivo de texto (texto/<clave>.json), que crea herramientas/pdf/extraer_texto.py:
+    {"calidad": "ok" | "ocr" | "sin_texto",
+     "origen_paginacion": "indicada_a_mano" | "numeracion_del_pdf" | "numeros_detectados"
+                          | "sin_determinar",
      "paginas": [{"pdf": 1, "impresa": "45", "texto": "..."}, ...]}
 """
 
@@ -42,7 +44,13 @@ class Pagina:
 class TextoDeObra:
     """El texto completo de una obra, página a página."""
     paginas: list[Pagina]
-    calidad: str  # "ok" si el texto es fiable; "ocr" si viene de un escaneo
+    calidad: str  # "ok" si el texto es fiable; "ocr" si viene de un escaneo; "sin_texto" si no hay texto
+    origen_paginacion: str = "sin_dato"  # cómo se averiguó la página impresa
+
+    @property
+    def paginacion_confirmada(self) -> bool:
+        """Indica si se sabe con seguridad la página impresa de cada página."""
+        return self.origen_paginacion != "sin_determinar"
 
 
 def leer_json(ruta: Path, que_es: str):
@@ -97,4 +105,8 @@ def cargar_texto(carpeta_proyecto: Path, obra: dict) -> TextoDeObra | None:
         Pagina(pdf=p["pdf"], impresa=str(p["impresa"]), texto=p["texto"])
         for p in datos.get("paginas", [])
     ]
-    return TextoDeObra(paginas=paginas, calidad=datos.get("calidad", "ok"))
+    return TextoDeObra(
+        paginas=paginas,
+        calidad=datos.get("calidad", "ok"),
+        origen_paginacion=datos.get("origen_paginacion", "sin_dato"),
+    )

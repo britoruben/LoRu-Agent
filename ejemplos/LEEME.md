@@ -1,7 +1,8 @@
 # Ejemplos: qué se puede probar ya
 
-> **En pocas palabras:** ya funciona un primer prototipo del **verificador de citas**. Hay un
-> proyecto de ejemplo con dos borradores: uno correcto y otro con 12 errores puestos a propósito.
+> **En pocas palabras:** ya funciona un primer prototipo del **verificador de citas** y del
+> **extractor de texto de PDF**. Hay un proyecto de ejemplo con un PDF y dos borradores: uno
+> correcto y otro con 12 errores puestos a propósito.
 > Puedes ver los informes que produce sin instalar nada, o ejecutarlo tú misma/o con Claude Code.
 > Todas las obras del ejemplo son **ficticias**, inventadas solo para probar.
 
@@ -33,10 +34,29 @@ Abre estos archivos (en GitHub se ven con formato):
 | 11 | Texto largo entre comillas sin fuente | AVISO |
 | 12 | Cita escrita en un formato que el verificador no reconoce | AVISO: no se ha podido comprobar |
 
-## 3. Probarlo con Claude Code
+## 3. Del PDF al texto con páginas
 
-Requisitos: tener instalados Claude Code y Python 3.10 o posterior, y haber descargado este
-repositorio. (La guía de instalación paso a paso llegará en la fase 1.)
+El texto de la obra ficticia `ficticia2021` que usa el verificador **se ha sacado de un PDF**:
+[`proyecto-demo/pdf/ficticia2021.pdf`](proyecto-demo/pdf/ficticia2021.pdf). Ese PDF imita un
+libro: su página 1 es la página 45 impresa, lleva cabeceras que alternan autora y título, una
+página sin número (inicio de capítulo) y una palabra partida al final de una línea.
+
+El extractor ha averiguado solo las páginas impresas (45 a 48), ha quitado cabeceras y números
+y ha guardado el resultado en
+[`proyecto-demo/texto/ficticia2021.json`](proyecto-demo/texto/ficticia2021.json). Con ese texto,
+el verificador da exactamente los mismos resultados que se ven arriba.
+
+Para repetirlo (ver apartado 5 para los requisitos):
+
+```
+python -m herramientas.pdf.extraer_texto ejemplos/proyecto-demo/pdf/ficticia2021.pdf --proyecto ejemplos/proyecto-demo --clave ficticia2021
+```
+
+O, en Claude Code: `/preparar-pdf ejemplos/proyecto-demo/pdf/ficticia2021.pdf` (clave `ficticia2021`).
+
+## 4. Probarlo con Claude Code
+
+Requisitos: haber seguido la [guía de instalación](../docs/instalacion.md).
 
 1. Abre la terminal en la carpeta `LoRu-Agent` y escribe `claude`.
 2. Escribe: `/verificar-citas ejemplos/proyecto-demo/borradores/borrador-con-errores.md`
@@ -46,24 +66,23 @@ Prueba también a pedirle, en lenguaje normal: *"Corrige las páginas que el inf
 corregir y vuelve a verificar"*. Observa que no inventa correcciones: solo corrige lo que el
 informe respalda.
 
-## 4. Probarlo sin Claude (solo el programa)
+## 5. Probarlo sin Claude (solo el programa)
 
-En la terminal, dentro de la carpeta `LoRu-Agent`:
-
-```
-python3 -m herramientas.verificacion.verificar_citas ejemplos/proyecto-demo/borradores/borrador-con-errores.md
-```
-
-(En Windows, escribe `python` en lugar de `python3`.)
-
-Para comprobar que todo el programa funciona, ejecuta las **pruebas automáticas** (30 casos con
-respuesta conocida):
+En la terminal, dentro de la carpeta `LoRu-Agent` y con el entorno virtual activo (ver la
+[guía de instalación](../docs/instalacion.md)):
 
 ```
-python3 -m unittest -v
+python -m herramientas.verificacion.verificar_citas ejemplos/proyecto-demo/borradores/borrador-con-errores.md
 ```
 
-## 5. Comprobar DOI reales contra Crossref
+Para comprobar que todo el programa funciona, ejecuta las **pruebas automáticas** (más de 50
+casos con respuesta conocida):
+
+```
+python -m unittest -v
+```
+
+## 6. Comprobar DOI reales contra Crossref
 
 Ver [`comprobar-doi/LEEME.md`](comprobar-doi/LEEME.md). Necesita conexión a internet.
 
@@ -72,8 +91,10 @@ Ver [`comprobar-doi/LEEME.md`](comprobar-doi/LEEME.md). Necesita conexión a int
 - **No comprueba paráfrasis.** Si el borrador atribuye una idea a un autor sin citarlo
   literalmente, solo se comprueba que la obra existe, no que el autor diga eso. El informe lo
   recuerda siempre.
-- **No lee PDF.** Los textos del ejemplo ya están preparados página a página. Extraer el texto y
-  las páginas impresas de un PDF real es el siguiente paso (fase 2).
+- **El extractor de PDF solo se ha probado con PDF creados para las pruebas.** Los PDF reales de
+  editoriales traen dos columnas, notas al pie, guiones de todo tipo... Habrá sorpresas.
+- **No lee PDF escaneados.** Los detecta y avisa, pero no puede sacar su texto (hace falta OCR).
+- **No reconoce páginas con números romanos** (prólogos, introducciones).
 - **No distingue mayúsculas de minúsculas** al comparar, porque al citar a mitad de frase es
   normal cambiar la inicial. Un cambio de mayúsculas deliberado no se detectaría.
 - **Descarta trozos de una sola letra** entre omisiones (`[...] y [...]`), porque no sirven para

@@ -45,6 +45,12 @@ class PruebasDeNormalizacion(unittest.TestCase):
     def test_une_palabras_partidas_al_final_de_linea(self):
         self.assertEqual(normalizar_texto("de pri-\nmer orden"), "de primer orden")
 
+    def test_une_palabras_partidas_con_saltos_de_linea_de_windows(self):
+        self.assertEqual(normalizar_texto("de pri-\r\nmer orden"), "de primer orden")
+
+    def test_no_une_palabras_separadas_por_una_raya_de_dialogo(self):
+        self.assertEqual(normalizar_texto("dijo—\nel filósofo"), "dijo- el filósofo")
+
     def test_separa_la_cita_por_las_omisiones(self):
         self.assertEqual(
             dividir_en_fragmentos("La razón [...] pero [la técnica] nada … más"),

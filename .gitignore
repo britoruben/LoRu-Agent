@@ -2,6 +2,9 @@
 corpus/
 proyectos/
 *.pdf
+# Excepción: PDF ficticios creados para las pruebas y los ejemplos (sin derechos de autor)
+!tests/datos/*.pdf
+!ejemplos/**/pdf/*.pdf
 
 # Secretos
 .env

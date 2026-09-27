@@ -17,9 +17,10 @@ Asistente de investigación basado en **Claude** para dos tareas:
 1. **[Guía: qué es y cómo funciona](docs/guia.md)**, escrita para cualquier lector, sin
    conocimientos técnicos.
 2. **[Glosario](docs/glosario.md)**: todas las palabras técnicas explicadas.
-3. **[Ejemplos](ejemplos/LEEME.md)**: lo que ya funciona, con un borrador lleno de errores a
+3. **[Instalación](docs/instalacion.md)**: cómo tenerlo en tu ordenador.
+4. **[Ejemplos](ejemplos/LEEME.md)**: lo que ya funciona, con un borrador lleno de errores a
    propósito y el informe del verificador.
-4. **[Preguntas abiertas](docs/07-preguntas-abiertas.md)**: lo que falta por decidir.
+5. **[Preguntas abiertas](docs/07-preguntas-abiertas.md)**: lo que falta por decidir.
 
 ## Toda la documentación
 

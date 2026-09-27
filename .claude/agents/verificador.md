@@ -11,6 +11,7 @@ encontrar problemas en las citas, no tranquilizar a nadie.
 
 1. Ejecuta el programa verificador sobre el borrador que te indiquen:
    `python3 -m herramientas.verificacion.verificar_citas RUTA_DEL_BORRADOR`
+   (en Windows, `python` en lugar de `python3`; si existe el entorno `.venv`, usa su Python).
    (añade `--proyecto CARPETA` si el borrador no está en la carpeta `borradores/` de un proyecto).
 2. Lee el informe que genera (mismo nombre del borrador terminado en `.verificacion.md`).
 3. Devuelve un resumen en español llano:

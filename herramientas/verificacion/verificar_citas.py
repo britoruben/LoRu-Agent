@@ -116,6 +116,14 @@ def comprobar_cita_literal(
             "Compruébala a mano con el libro o el PDF, o añade su texto al proyecto.",
         )
 
+    if texto.calidad == "sin_texto":
+        return Incidencia(
+            AVISO, cita.linea, cita.etiqueta,
+            f"El PDF de «{obra_citada.clave}» parece escaneado y no tiene texto, así que no se ha "
+            f"podido comprobar la cita «{literal}».",
+            "Compruébala a mano con el libro o el PDF.",
+        )
+
     paginas_citadas = obra_citada.describir_paginas()
     encontrado = busqueda.buscar_cita(
         cita.texto_literal, texto, obra_citada.pagina_inicio, obra_citada.pagina_fin
@@ -123,7 +131,15 @@ def comprobar_cita_literal(
     donde = ", ".join(encontrado.paginas_encontradas)
 
     if encontrado.resultado == busqueda.EN_SU_PAGINA:
-        return None
+        if texto.paginacion_confirmada:
+            return None
+        return Incidencia(
+            AVISO, cita.linea, cita.etiqueta,
+            f"La cita es exacta, pero no se sabe con seguridad la paginación impresa de "
+            f"«{obra_citada.clave}» (se ha usado la numeración del PDF).",
+            "Comprueba la página en el libro o el PDF, o vuelve a extraer el texto indicando "
+            "la primera página impresa (--primera-pagina).",
+        )
     if encontrado.resultado == busqueda.CRUZA_DE_PAGINA:
         paginas = encontrado.paginas_encontradas
         return Incidencia(

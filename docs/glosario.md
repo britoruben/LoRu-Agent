@@ -56,8 +56,14 @@ puede comprobar se hace de forma determinista.
 no solo por sus palabras exactas. Se usará para localizar en el original el pasaje que corresponde
 a una paráfrasis.
 
+**Entorno virtual (`.venv`)** — Una carpeta donde se instalan los paquetes de Python que necesita
+este proyecto, separados del resto del ordenador. Así no se estropea nada fuera del proyecto.
+
 **Estado de la cuestión** — Informe sobre qué se sabe de un tema: posiciones, consensos, disputas,
 errores y preguntas sin responder.
+
+**GitHub Actions** — Un servicio de GitHub que ejecuta las pruebas automáticas cada vez que se
+suben cambios, en Windows, macOS y Linux. Si alguna falla, el cambio aparece marcado en rojo.
 
 **Git / repositorio (repo)** — Git es un sistema que guarda el historial de cambios de un conjunto
 de archivos, como el "control de cambios" de Word pero para una carpeta entera. Un *repositorio* es
@@ -84,6 +90,9 @@ foto de cada página) y no contiene texto que se pueda copiar. Puede cometer err
 
 **Markdown (`.md`)** — Texto con formato muy sencillo: `# Título`, `**negrita**`, `> cita`.
 Se abre con cualquier editor de texto y GitHub lo muestra con formato.
+
+**Paquete / dependencia** — Un programa ya hecho por otras personas que este proyecto usa, como
+`pypdf` para leer PDF. Se instalan con la lista de `requirements.txt`.
 
 **Página impresa vs. página del PDF** — La página 1 del PDF puede ser la página 45 del libro o de la
 revista. Para citar hay que usar siempre la **página impresa**.
