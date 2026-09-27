@@ -26,16 +26,19 @@ permitido citar. Una obra solo entra si se ha comprobado que existe. Técnicamen
 formato *CSL-JSON* (ver abajo).
 
 **Carpeta de datos (`LORU_DATOS`)** — La carpeta de tu ordenador donde se guardan los PDF, fichas y
-borradores de cada investigación. Está separada de la carpeta del programa.
+borradores de cada investigación. Está separada de la carpeta del programa. En Claude Code en la
+web es `Investigacion/`, dentro de la sesión, y es **temporal**: se borra al cerrar la sesión.
 
-**Claude Code** — La versión de Claude que trabaja dentro de tu ordenador: puede leer y crear
-archivos y ejecutar programas, siempre con tu permiso. Se usa escribiendo en la terminal.
+**Claude Code** — La versión de Claude que puede leer y crear archivos y ejecutar programas.
+Se usa de dos formas: **en la web** (claude.ai/code), donde trabaja sobre una copia del proyecto
+en la nube y basta con el navegador, o **en tu ordenador**, escribiendo `claude` en la terminal.
+Ahora el equipo usa la versión web.
 
 **Código / script** — Instrucciones escritas para que el ordenador haga una tarea. Un *script* es un
 programa pequeño que hace una sola cosa (por ejemplo, "extraer el texto de un PDF").
 
 **Comando (`/algo`)** — Una orden que se escribe en la conversación con Claude Code empezando por
-barra, como `/state-of-the-art`. Pone en marcha un proceso ya preparado. En la documentación técnica
+barra, como `/verify-citations`. Pone en marcha un proceso ya preparado. En la documentación técnica
 se llaman *skills*.
 
 **CSL / citeproc / Pandoc** — Herramientas que dan formato a las citas y a la bibliografía.
@@ -111,6 +114,9 @@ seguir. Hay cuatro (ver la [guía](guia.md)).
 **Registro de decisiones (ADR)** — Una nota breve que explica una decisión importante del proyecto:
 qué se decidió, qué alternativas había y por qué. Están en `docs/decisions/`. "ADR" son las
 siglas en inglés de *Architecture Decision Record*.
+
+**Sesión** — Una conversación con Claude Code. En la web, cada sesión trabaja en una copia del
+proyecto preparada para ella; lo que no se guarda en GitHub o no descargas se pierde al cerrarla.
 
 **Subagente** — Una copia de Claude a la que se encarga una única tarea con instrucciones
 concretas (leer un documento, verificar citas…). Es cada uno de los "ayudantes" del equipo.

@@ -54,7 +54,28 @@ python -m tools.pdf.extract_text ejemplos/proyecto-demo/pdf/ficticia2021.pdf --p
 
 O, en Claude Code: `/prepare-pdf ejemplos/proyecto-demo/pdf/ficticia2021.pdf` (clave `ficticia2021`).
 
-## 4. Probarlo con Claude Code
+## 4. Probarlo en Claude Code en la web
+
+No hace falta instalar nada: basta con el navegador.
+
+1. Entra en https://claude.ai/code y abre una sesión nueva sobre el repositorio `LoRu-Agent`,
+   rama `main`.
+2. Espera a que la sesión esté lista. Al empezar, se prepara sola (tarda unos segundos).
+3. Escribe: `/verify-citations ejemplos/proyecto-demo/borradores/borrador-con-errores.md`
+4. Deberías ver el veredicto **NO APTO**, con **8 fallos y 4 avisos**, explicados uno a uno.
+   Son los 12 errores puestos a propósito de la tabla del apartado 2.
+5. Para ver cómo se prepara un PDF, escribe:
+   `/prepare-pdf ejemplos/proyecto-demo/pdf/ficticia2021.pdf` (clave `ficticia2021`).
+   Deberías ver que ha encontrado las páginas impresas 45 a 48.
+
+También puedes preguntarle cualquier cosa en lenguaje normal, por ejemplo *"¿Qué hace este
+proyecto?"* o *"¿Qué falta por decidir?"*. Te responderá en español.
+
+**Importante:** los archivos que subas o se creen durante la sesión (por ejemplo, un PDF tuyo
+y su texto) son **temporales**: se borran al cerrar la sesión. Descarga lo que quieras
+conservar. No subas PDF con derechos de autor al repositorio.
+
+## 4 bis. Probarlo con Claude Code en tu ordenador
 
 Requisitos: haber seguido la [guía de instalación](../docs/instalacion.md).
 
