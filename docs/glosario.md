@@ -82,12 +82,19 @@ con un gestor bibliográfico como Zotero). Un *servidor MCP* es el adaptador que
 **OCR** — Reconocimiento de texto en imágenes. Hace falta cuando un PDF es un libro escaneado (una
 foto de cada página) y no contiene texto que se pueda copiar. Puede cometer errores.
 
+**Markdown (`.md`)** — Texto con formato muy sencillo: `# Título`, `**negrita**`, `> cita`.
+Se abre con cualquier editor de texto y GitHub lo muestra con formato.
+
 **Página impresa vs. página del PDF** — La página 1 del PDF puede ser la página 45 del libro o de la
 revista. Para citar hay que usar siempre la **página impresa**.
 
 **Perfil disciplinar (`proyecto.yaml`)** — Una ficha con la configuración de cada investigación:
 pregunta, disciplina, idiomas, periodo, dónde buscar, estilo de cita, límites. Permite que el mismo
 sistema sirva para filosofía o para medicina.
+
+**Prueba automática (*test*)** — Un caso preparado de antemano con la respuesta correcta
+conocida ("esta cita tiene la página equivocada: el programa debe detectarlo"). Se ejecutan todas
+a la vez en segundos; si alguna falla, algo se ha estropeado. Están en la carpeta `tests/`.
 
 **Punto de control** — Momento en que el sistema se detiene y te pide que apruebes algo antes de
 seguir. Hay cuatro (ver la [guía](guia.md)).

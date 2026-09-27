@@ -108,7 +108,13 @@ sistema evita el problema así:
 
 Más detalle en [05 · Verificación de citas](05-verificacion-citas.md).
 
-## 7. Qué NO hace
+## 7. Qué se puede probar ya
+
+Ya funciona un primer prototipo del **verificador de citas**, con un proyecto de ejemplo con
+errores puestos a propósito. Ver [ejemplos](../ejemplos/LEEME.md): se puede ver el resultado
+sin instalar nada.
+
+## 8. Qué NO hace
 
 - **No escribe artículos listos para publicar sin revisión.** Es un asistente; la autoría y las
   decisiones intelectuales son tuyas.
@@ -116,7 +122,7 @@ Más detalle en [05 · Verificación de citas](05-verificacion-citas.md).
 - **No accede a bases de datos privadas desde la nube**: eso solo funcionará en tu ordenador, con
   tu acceso de la universidad.
 
-## 8. Dónde está cada cosa
+## 9. Dónde está cada cosa
 
 | Si quieres saber… | Lee |
 |---|---|
@@ -130,6 +136,7 @@ Más detalle en [05 · Verificación de citas](05-verificacion-citas.md).
 | Qué falta por decidir | [07 · Preguntas abiertas](07-preguntas-abiertas.md) |
 | Qué se ha decidido y por qué | [Decisiones](decisiones/) |
 | Qué significa una palabra | [Glosario](glosario.md) |
+| Qué se puede probar ya | [Ejemplos](../ejemplos/LEEME.md) |
 
 **Cómo leer los documentos:** cada uno empieza con un recuadro **"En pocas palabras"** y está
 escrito para cualquier lector. Las partes marcadas **"Detalle técnico"** son para quien programe;

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m herramientas.verificacion.verificar_citas:*)",
+      "Bash(python3 -m herramientas.fuentes.comprobar_dois:*)",
+      "Bash(python3 -m unittest:*)"
+    ]
+  }
+}

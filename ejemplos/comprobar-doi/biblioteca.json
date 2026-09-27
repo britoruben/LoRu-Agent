@@ -1,0 +1,43 @@
+[
+  {
+    "id": "turing1950",
+    "type": "article-journal",
+    "title": "Computing Machinery and Intelligence",
+    "author": [{"family": "Turing", "given": "A. M."}],
+    "issued": {"date-parts": [[1950]]},
+    "container-title": "Mind",
+    "DOI": "10.1093/mind/LIX.236.433",
+    "verificacion": "pendiente"
+  },
+  {
+    "id": "searle1980",
+    "type": "article-journal",
+    "title": "Minds, brains, and programs",
+    "author": [{"family": "Searle", "given": "John R."}],
+    "issued": {"date-parts": [[1980]]},
+    "container-title": "Behavioral and Brain Sciences",
+    "DOI": "10.1017/S0140525X00005756",
+    "verificacion": "pendiente"
+  },
+  {
+    "id": "lecun2016",
+    "type": "article-journal",
+    "title": "Deep learning",
+    "author": [{"family": "LeCun", "given": "Yann"}],
+    "issued": {"date-parts": [[2016]]},
+    "container-title": "Nature",
+    "DOI": "10.1038/nature14539",
+    "verificacion": "pendiente",
+    "nota": "TRAMPA: el año correcto es 2015. El comprobador debería señalar la discrepancia."
+  },
+  {
+    "id": "inventada2023",
+    "type": "article-journal",
+    "title": "Sobre la conciencia de los grandes modelos de lenguaje",
+    "author": [{"family": "Inventada", "given": "Marta"}],
+    "issued": {"date-parts": [[2023]]},
+    "DOI": "10.9999/inventado.2023.001",
+    "verificacion": "pendiente",
+    "nota": "TRAMPA: obra y DOI inventados. El comprobador debería decir que no existe."
+  }
+]

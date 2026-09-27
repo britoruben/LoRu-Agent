@@ -1,0 +1,9 @@
+{
+  "calidad": "ok",
+  "nota": "Texto FICTICIO escrito para probar el verificador.",
+  "paginas": [
+    {"pdf": 1, "impresa": "112", "texto": "Responsabilidad sin comprensión\n\nLa tesis de este artículo es sencilla: podemos ser responsables de lo que no comprendemos, siempre que hayamos decidido usarlo. La comprensión no es condición necesaria de la responsabilidad, aunque sí lo es de la responsabilidad plena."},
+    {"pdf": 2, "impresa": "113", "texto": "Esta posición se opone a quienes sostienen que la opacidad técnica exime de culpa. Si aceptáramos ese argumento, bastaría con construir sistemas incomprensibles para quedar libres de toda obligación."},
+    {"pdf": 3, "impresa": "114", "texto": "Concluyo que la pregunta relevante no es si entendemos la máquina, sino si podíamos haber elegido no usarla."}
+  ]
+}

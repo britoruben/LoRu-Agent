@@ -8,15 +8,18 @@ Asistente de investigación basado en **Claude** para dos tareas:
 2. **Redacción de artículos:** escribir a partir de ese estado de la cuestión y de tus materiales,
    según las normas de la revista elegida y **comprobando que cada cita es real y exacta**.
 
-> **Estado actual: fase 0, diseño.** Por ahora solo existe la documentación; todavía no hay un
-> programa que se pueda usar. Ver el [plan por fases](docs/06-plan-por-fases.md).
+> **Estado actual:** diseño casi terminado y **primer prototipo del verificador de citas**
+> funcionando, con un proyecto de ejemplo. Ver [qué se puede probar ya](ejemplos/LEEME.md) y
+> el [plan por fases](docs/06-plan-por-fases.md).
 
 ## Por dónde empezar
 
 1. **[Guía: qué es y cómo funciona](docs/guia.md)**, escrita para cualquier lector, sin
    conocimientos técnicos.
 2. **[Glosario](docs/glosario.md)**: todas las palabras técnicas explicadas.
-3. **[Preguntas abiertas](docs/07-preguntas-abiertas.md)**: lo que falta por decidir.
+3. **[Ejemplos](ejemplos/LEEME.md)**: lo que ya funciona, con un borrador lleno de errores a
+   propósito y el informe del verificador.
+4. **[Preguntas abiertas](docs/07-preguntas-abiertas.md)**: lo que falta por decidir.
 
 ## Toda la documentación
 
