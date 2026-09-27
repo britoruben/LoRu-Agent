@@ -37,7 +37,7 @@ orquestador y permite paralelizar.
 deduplicación, cálculo de relevancia, extracción PDF, verificación) va en código testeable; MCP
 se usa cuando ya existe un servidor maduro (p. ej. para el gestor bibliográfico).
 
-## Subagentes (decisión: 7, cada uno testeable por separado)
+## Subagentes (decisión: 7 + `revisor` en fase 8; cada uno testeable por separado)
 
 | Subagente | Tareas | Entrada → Salida |
 |---|---|---|
@@ -48,6 +48,7 @@ se usa cuando ya existe un servidor maduro (p. ej. para el gestor bibliográfico
 | `sintetizador` | B7 | fichas → estado de la cuestión + mapa de disputas/vacíos |
 | `redactor` | R1–R2 | estado de la cuestión + objetivos + guía de revista → borrador |
 | `verificador` | R3–R4 | borrador → informe de citas (OK / FALLO) — **sin permisos de escritura sobre el borrador** |
+| `revisor` *(fase 8)* | — | borrador + ficha de revista → informe tipo *peer review* — **solo lectura** |
 
 ## Perfil disciplinar (configuración por proyecto)
 

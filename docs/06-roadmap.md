@@ -11,8 +11,9 @@ las preguntas abiertas que la bloquean.
 | **3 · Búsqueda abierta** | B1, B3, B4 (OA) | Clientes OpenAlex/Crossref/S2/Unpaywall, ranking, `candidatos.csv`, skill `/buscar` | Para una pregunta real, lista útil según el investigador | Fase 1 |
 | **4 · Lectura y síntesis** | B5, B7 | Subagentes `lector` (2 niveles) y `sintetizador`, skill `/estado-cuestion`; resumen, informe y tablas | Estado de la cuestión trazable en un proyecto piloto | Fase 3 |
 | **5 · Snowballing** | B6 | Grafo de citas, rondas acotadas, mapa visual `mapa.html` | Descubre documentos relevantes no hallados en la búsqueda inicial | Fase 4 |
-| **6 · Redacción** | R1–R3 | Subagente `redactor`, fichas de revista, Pandoc+CSL, hook de verificación | Borrador de artículo con 0 fallos de verificación | Fase 2, 4 |
+| **6 · Redacción** | R1–R3 | Subagente `redactor` (por secciones), fichas de revista a partir de guías oficiales, Pandoc+CSL, hook de verificación | Borrador de artículo con 0 fallos de verificación | Fase 2, 4 |
 | **7 · Bases privadas** | B2 | Cliente(s) API oficial o flujo de descarga manual guiada | Según decisión P-03 | P-03 |
+| **8 · Revisor** | — | Subagente `revisor` (peer review simulado) | Sus objeciones coinciden sustancialmente con las de un revisor humano en un caso de prueba | Fase 6 |
 
 Nota: el verificador (fase 2) va **antes** que la búsqueda y la redacción a propósito: es la pieza
 que da confianza al resto y se puede probar de forma aislada.

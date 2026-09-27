@@ -40,7 +40,7 @@ Sobre un borrador comprueba:
 | Cada DOI de la biblioteca sigue resolviendo | AVISO |
 | Cada cita textual entre comillas con `[@clave, p. X]` aparece en el texto de `clave` | FALLO: cita no encontrada |
 | La cita aparece en la página X impresa | FALLO: página incorrecta (sugiere la correcta) |
-| Afirmaciones atribuidas (paráfrasis) | AVISO: revisión humana (comprobación semántica, no determinista) |
+| Afirmaciones atribuidas (paráfrasis) | **Verificación asistida:** se localiza el pasaje más probable (búsqueda semántica en el texto de la fuente) y se muestra junto a la paráfrasis para confirmación humana. Sin pasaje localizable → AVISO destacado |
 | `[FUENTE PENDIENTE]` restantes | BLOQUEA versión final |
 
 Salida: `borradores/<nombre>.verificacion.md` con la lista de incidencias.
