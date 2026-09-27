@@ -17,8 +17,8 @@ Numeración: B1–B7 corresponden a las tareas 1–7 de la idea original.
 ## B1 · Repositorios públicos
 
 - **Entrada:** `proyecto.yaml` (pregunta, disciplina, periodo, idiomas).
-- **Proceso:** traducir la pregunta a consultas por fuente (el LLM propone términos y sinónimos,
-  el usuario valida); ejecutar contra las fuentes del perfil; normalizar a un esquema común;
+- **Proceso:** traducir la pregunta a consultas por fuente, **en español e inglés** (el LLM propone
+  términos, sinónimos y traducciones; el usuario valida en PC-1); ejecutar contra las fuentes del perfil; normalizar a un esquema común;
   deduplicar por DOI → PMID → título normalizado + año.
 - **Salida:** `candidatos.csv` (id, título, autores, año, tipo, DOI, fuente(s), citas, OA sí/no, URL).
 - **Fuentes:** ver `04-fuentes-y-acceso.md`.

@@ -125,6 +125,7 @@ $LORU_DATOS/<proyecto>/
 | Riesgo | Mitigación |
 |---|---|
 | Consumo de contexto/coste con muchos documentos | Subagentes + fichas resumidas + límites en `proyecto.yaml` |
+| Límites de uso del plan Pro/Max a mitad de un flujo | Flujos reanudables: estado persistido tras cada documento (ADR-0005) |
 | Página PDF ≠ página impresa | Detección de desfase y marcas de página en el texto extraído (ver `05`) |
 | PDFs escaneados | OCR con indicador de calidad; citas de OCR marcadas para revisión |
 | Cobertura desigual por disciplina (libros, humanidades) | Múltiples fuentes + entrada manual a la biblioteca |

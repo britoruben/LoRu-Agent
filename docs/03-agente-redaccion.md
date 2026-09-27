@@ -34,7 +34,9 @@
   conflicto de intereses, uso de IA), normas específicas.
 - El formato de citas y bibliografía lo produce **Pandoc + citeproc** con el CSL correspondiente,
   no el modelo.
-- Salida en Markdown y `.docx` (plantilla de la revista si existe).
+- Fuente de trabajo en **Markdown**; exportación con Pandoc a **`.docx`** (plantilla de referencia de la
+  revista si existe) y a **LaTeX/PDF** (clase/plantilla de la revista si existe).
+- Idioma de redacción: el de la revista objetivo (español o inglés).
 
 ## R3 · Cita literal con página
 
