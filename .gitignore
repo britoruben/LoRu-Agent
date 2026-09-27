@@ -1,0 +1,13 @@
+# Documentos con copyright y datos de trabajo (nunca a git)
+corpus/
+proyectos/
+*.pdf
+
+# Secretos
+.env
+*.key
+
+# Python
+__pycache__/
+.venv/
+*.pyc
