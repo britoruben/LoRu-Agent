@@ -19,14 +19,14 @@ Imagina que diriges un equipo de ayudantes de investigación. Cada uno tiene un 
 
 | Ayudante | Qué hace | Cómo se llama en la documentación técnica |
 |---|---|---|
-| El **buscador** | Busca en catálogos y bases de datos lo publicado sobre el tema | `buscador` |
-| El **bibliotecario** | Consigue los textos (solo por vías legales) | `recuperador` |
-| El **lector** | Lee cada texto y rellena una ficha de lectura | `lector` |
-| El **rastreador** | Mira a quién citan los textos y quién los cita a ellos, para encontrar obras que faltan | `rastreador` |
-| El **sintetizador** | Junta todas las fichas y redacta el estado de la cuestión | `sintetizador` |
-| El **redactor** | Escribe el artículo sección a sección | `redactor` |
-| El **verificador** | Comprueba cada cita contra el texto original, como un corrector muy estricto | `verificador` |
-| El **revisor** *(más adelante)* | Lee el borrador como lo haría el revisor de una revista | `revisor` |
+| El **buscador** | Busca en catálogos y bases de datos lo publicado sobre el tema | `searcher` |
+| El **bibliotecario** | Consigue los textos (solo por vías legales) | `retriever` |
+| El **lector** | Lee cada texto y rellena una ficha de lectura | `reader` |
+| El **rastreador** | Mira a quién citan los textos y quién los cita a ellos, para encontrar obras que faltan | `tracker` |
+| El **sintetizador** | Junta todas las fichas y redacta el estado de la cuestión | `synthesizer` |
+| El **redactor** | Escribe el artículo sección a sección | `writer` |
+| El **verificador** | Comprueba cada cita contra el texto original, como un corrector muy estricto | `verifier` |
+| El **revisor** *(más adelante)* | Lee el borrador como lo haría el revisor de una revista | `reviewer` |
 
 Tú eres quien dirige el equipo: das la pregunta de investigación, y el equipo **se para y te
 consulta en cuatro momentos clave** antes de seguir (ver apartado 4).
@@ -38,7 +38,7 @@ las que se da una única tarea y unas instrucciones concretas.
 
 1. Abres una ventana de texto en tu ordenador (la **terminal**) y escribes `claude`. Se abre una
    conversación con Claude, como un chat, pero con acceso a tus carpetas de trabajo.
-2. Escribes un comando que empieza por barra, por ejemplo `/estado-cuestion`, y respondes a lo que
+2. Escribes un comando que empieza por barra, por ejemplo `/state-of-the-art`, y respondes a lo que
    te pregunta: tu pregunta de investigación, la disciplina, el periodo, los idiomas…
 3. El equipo trabaja. Te va informando de lo que hace y **se detiene en los puntos de control**.
 4. Al final, encuentras los resultados en una carpeta de tu ordenador, como documentos normales
@@ -106,7 +106,7 @@ sistema evita el problema así:
   errores de formato.
 - Si algo no cuadra, el texto **no se puede dar por terminado** hasta que se corrija.
 
-Más detalle en [05 · Verificación de citas](05-verificacion-citas.md).
+Más detalle en [05 · Verificación de citas](05-citation-verification.md).
 
 ## 7. Qué se puede probar ya
 
@@ -129,14 +129,14 @@ sin instalar nada.
 | Si quieres saber… | Lee |
 |---|---|
 | Qué persigue el proyecto y qué no | [00 · Visión](00-vision.md) |
-| Cómo encajan las piezas | [01 · Arquitectura](01-arquitectura.md) |
-| Cómo funciona la revisión bibliográfica | [02 · Flujo bibliográfico](02-agente-bibliografico.md) |
-| Cómo funciona la escritura del artículo | [03 · Flujo de redacción](03-agente-redaccion.md) |
-| De dónde saca las publicaciones | [04 · Fuentes y acceso](04-fuentes-y-acceso.md) |
-| Cómo se comprueban las citas | [05 · Verificación de citas](05-verificacion-citas.md) |
-| En qué orden se construye | [06 · Plan por fases](06-plan-por-fases.md) |
-| Qué falta por decidir | [07 · Preguntas abiertas](07-preguntas-abiertas.md) |
-| Qué se ha decidido y por qué | [Decisiones](decisiones/) |
+| Cómo encajan las piezas | [01 · Arquitectura](01-architecture.md) |
+| Cómo funciona la revisión bibliográfica | [02 · Flujo bibliográfico](02-bibliographic-agent.md) |
+| Cómo funciona la escritura del artículo | [03 · Flujo de redacción](03-writing-agent.md) |
+| De dónde saca las publicaciones | [04 · Fuentes y acceso](04-sources-and-access.md) |
+| Cómo se comprueban las citas | [05 · Verificación de citas](05-citation-verification.md) |
+| En qué orden se construye | [06 · Plan por fases](06-phased-plan.md) |
+| Qué falta por decidir | [07 · Preguntas abiertas](07-open-questions.md) |
+| Qué se ha decidido y por qué | [Decisiones](decisions/) |
 | Qué significa una palabra | [Glosario](glosario.md) |
 | Qué se puede probar ya | [Ejemplos](../ejemplos/LEEME.md) |
 | Cómo se instala | [Instalación](instalacion.md) |
@@ -144,3 +144,6 @@ sin instalar nada.
 **Cómo leer los documentos:** cada uno empieza con un recuadro **"En pocas palabras"** y está
 escrito para cualquier lector. Las partes marcadas **"Detalle técnico"** son para quien programe;
 se pueden saltar sin perder el hilo.
+
+**Idioma:** los documentos 00 a 07 y las decisiones están en inglés (decisión 0008); las guías
+(esta, el glosario, la instalación y los ejemplos) siguen en español.

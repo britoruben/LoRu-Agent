@@ -35,7 +35,7 @@ archivos y ejecutar programas, siempre con tu permiso. Se usa escribiendo en la 
 programa pequeño que hace una sola cosa (por ejemplo, "extraer el texto de un PDF").
 
 **Comando (`/algo`)** — Una orden que se escribe en la conversación con Claude Code empezando por
-barra, como `/estado-cuestion`. Pone en marcha un proceso ya preparado. En la documentación técnica
+barra, como `/state-of-the-art`. Pone en marcha un proceso ya preparado. En la documentación técnica
 se llaman *skills*.
 
 **CSL / citeproc / Pandoc** — Herramientas que dan formato a las citas y a la bibliografía.
@@ -109,7 +109,7 @@ a la vez en segundos; si alguna falla, algo se ha estropeado. Están en la carpe
 seguir. Hay cuatro (ver la [guía](guia.md)).
 
 **Registro de decisiones (ADR)** — Una nota breve que explica una decisión importante del proyecto:
-qué se decidió, qué alternativas había y por qué. Están en `docs/decisiones/`. "ADR" son las
+qué se decidió, qué alternativas había y por qué. Están en `docs/decisions/`. "ADR" son las
 siglas en inglés de *Architecture Decision Record*.
 
 **Subagente** — Una copia de Claude a la que se encarga una única tarea con instrucciones

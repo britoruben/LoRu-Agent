@@ -1,70 +1,68 @@
-# 00 · Visión: qué perseguimos y qué no
+# 00 · Vision: what we aim for and what we don't
 
-> **En pocas palabras:** queremos un asistente que haga el trabajo mecánico de la investigación
-> bibliográfica y de la redacción (buscar, cribar, conseguir textos, extraer, comprobar citas) sin
-> el gran peligro de las IA: inventar referencias o citas. Las decisiones intelectuales siguen
-> siendo de la persona que investiga.
+> **In short:** we want an assistant that does the mechanical work of literature research and
+> writing (searching, screening, getting texts, extracting, checking citations) without the big
+> danger of AIs: inventing references or quotes. The intellectual decisions remain with the
+> researcher.
 
-## El problema
+## The problem
 
-Revisar la bibliografía y redactar un artículo exige mucho trabajo mecánico: buscar en catálogos,
-descartar lo que no sirve, conseguir los textos, tomar notas, comprobar citas y páginas… Las IA
-pueden ayudar mucho, pero tienen un defecto grave: a veces **se inventan referencias** que no
-existen, dan **identificadores de publicación (DOI) incorrectos** o **alteran citas literales**.
-En un trabajo académico eso es inadmisible.
+Reviewing the literature and writing an article demands a lot of mechanical work: searching
+catalogues, discarding what is not useful, getting the texts, taking notes, checking quotes and
+pages… AIs can help a lot, but they have a serious flaw: sometimes they **invent references**
+that do not exist, give **wrong publication identifiers (DOI)** or **alter literal quotes**. In
+academic work that is unacceptable.
 
-## El objetivo
+## The goal
 
-Que al descargar este proyecto y abrirlo con Claude Code en tu ordenador tengas un equipo de
-ayudantes capaz de:
+That when you download this project and open it with Claude Code on your computer you get a team
+of helpers able to:
 
-- **Revisión bibliográfica:** pasar de una pregunta de investigación a un estado de la cuestión
-  en el que cada afirmación remita a una obra y una página, con las disputas, errores y vacíos del
-  debate.
-- **Redacción:** pasar de ese estado de la cuestión y tus propios materiales a un borrador de
-  artículo adaptado a una revista concreta, con **todas las citas comprobadas**.
+- **Literature review:** go from a research question to a state of the art in which every claim
+  points to a work and a page, with the disputes, errors and gaps of the debate.
+- **Writing:** go from that state of the art and your own materials to an article draft adapted
+  to a specific journal, with **every citation checked**.
 
-## Para todas las disciplinas
+## For every discipline
 
-Debe servir para humanidades, ciencias sociales, salud y biomedicina, e ingeniería e informática.
-Como cada disciplina tiene sus catálogos, sus estilos de cita y su manera de valorar las obras,
-nada de esto está fijado de antemano: se configura en la **ficha de cada proyecto** (ver
-[01 · Arquitectura](01-arquitectura.md)).
+It must work for the humanities, social sciences, health and biomedicine, and engineering and
+computer science. Since each discipline has its own catalogues, citation styles and ways of
+valuing works, none of this is fixed in advance: it is configured in **each project's profile**
+(see [01 · Architecture](01-architecture.md)).
 
-## Lo que NO pretende
+## What it does NOT aim for
 
-- **No** producir artículos publicables sin revisión humana. Es un asistente: la autoría y las
-  decisiones intelectuales son de quien investiga.
-- **No** saltarse licencias: nada de descargas masivas desde plataformas de pago ni de webs
-  piratas.
-- **No** usar el acceso de la universidad desde la nube: el acceso a bases de datos privadas solo
-  funcionará en tu ordenador, con tus credenciales.
+- **Not** producing publishable articles without human review. It is an assistant: authorship
+  and intellectual decisions belong to the researcher.
+- **Not** bypassing licences: no mass downloads from paid platforms or pirate sites.
+- **Not** using the university's access from the cloud: access to private databases will only
+  work on your computer, with your credentials.
 
-## Principios
+## Principles
 
-1. **Programas para lo comprobable, IA para lo interpretativo.** Buscar, extraer texto, dar
-   formato a las citas y verificarlas lo hacen programas, que siempre dan el mismo resultado. La
-   IA lee, clasifica, resume y redacta.
-2. **Las citas se protegen con el diseño, no con buenas intenciones.** No basta con pedirle a la
-   IA que "no invente". El sistema debe impedir que una cita no comprobada llegue al texto final.
-3. **Todo se puede rastrear.** Cada afirmación remite a una obra y una página.
-4. **La persona decide en momentos fijos** (ver abajo). Entre ellos, el sistema trabaja solo.
-5. **Siempre con límites.** Cada proceso tiene un máximo de documentos, de rondas y de uso, para
-   no desbordarse.
+1. **Programs for what can be checked, AI for what must be interpreted.** Searching, extracting
+   text, formatting citations and verifying them are done by programs, which always give the
+   same result. The AI reads, classifies, summarizes and writes.
+2. **Citations are protected by design, not by good intentions.** Asking the AI "not to invent"
+   is not enough. The system must prevent an unchecked citation from reaching the final text.
+3. **Everything can be traced.** Every claim points to a work and a page.
+4. **The person decides at fixed moments** (see below). Between them, the system works alone.
+5. **Always with limits.** Each process has a maximum of documents, rounds and usage, so it does
+   not run away.
 
-## Los cuatro puntos de control (decisión 0004)
+## The four checkpoints (decision 0004)
 
-El sistema se detiene y espera tu aprobación solo en estos momentos:
+The system stops and waits for your approval only at these moments:
 
-| Punto | Cuándo | Qué decides | Pasos afectados |
+| Point | When | What you decide | Steps affected |
 |---|---|---|---|
-| **1** | Antes de buscar | Las palabras de búsqueda, los catálogos, el periodo y los idiomas | B1–B2 |
-| **2** | Después de ordenar los resultados, y en cada ronda de bola de nieve | Qué obras entran en el estudio | B3, B6 |
-| **3** | Antes de escribir | El esquema del artículo y su argumento central | R1 |
-| **4** | Antes de dar el texto por terminado | La versión final, junto con el informe de comprobación de citas | R2–R4 |
+| **1** | Before searching | Search terms, catalogues, period and languages | B1–B2 |
+| **2** | After ranking the results, and at each snowball round | Which works enter the study | B3, B6 |
+| **3** | Before writing | The article's outline and its central argument | R1 |
+| **4** | Before considering the text finished | The final version, together with the citation-check report | R2–R4 |
 
-Entre un punto y otro, el sistema te informa de lo que hace pero no te pregunta. Si tropieza con
-un problema (una obra que no se consigue, un PDF ilegible, un límite alcanzado), lo apunta y sigue
-con lo demás.
+Between one point and the next, the system tells you what it is doing but does not ask. If it
+hits a problem (a work that cannot be obtained, an unreadable PDF, a limit reached), it notes it
+and carries on with the rest.
 
-En la documentación técnica estos puntos se llaman **PC-1, PC-2, PC-3 y PC-4**.
+In the technical documentation these points are called **PC-1, PC-2, PC-3 and PC-4**.

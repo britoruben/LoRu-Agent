@@ -1,3 +1,3 @@
-# Paquetes que solo hacen falta para regenerar los PDF de prueba (tests/datos).
+# Packages needed only to regenerate the test PDFs (tests/data).
 -r requirements.txt
 reportlab>=4.0
