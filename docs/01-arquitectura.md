@@ -61,11 +61,12 @@ idiomas: [es, en]
 periodo: {desde: 2000, hasta: 2026}
 fuentes: [openalex, crossref, semantic_scholar, pubmed]   # según disciplina
 relevancia:
-  pesos: {citas: 0.3, citas_por_anio: 0.3, centralidad_red: 0.3, recencia: 0.1}
+  pesos: {citas: 0.2, citas_por_anio: 0.25, centralidad_red: 0.25, pertinencia: 0.25, recencia: 0.05}
 limites:
   max_candidatos: 200
-  max_lectura_completa: 40
-  profundidad_snowballing: 2
+  max_lectura_completa: 40        # el resto recibe lectura ligera
+snowballing: moderado             # ligero | moderado | exhaustivo
+salidas_b7: [resumen, informe, tablas, mapa]
 estilo_cita: apa-7th-edition     # identificador CSL
 revista_objetivo: null
 ```
@@ -111,7 +112,10 @@ $LORU_DATOS/<proyecto>/
 ├── fichas/              # B5: una ficha YAML por documento
 ├── grafo.json           # B6: red de citas
 ├── biblioteca.json      # CSL-JSON verificada (la única fuente de citas válida)
-├── estado-cuestion.md   # B7
+├── resumen-ejecutivo.md # B7
+├── estado-cuestion.md   # B7 (+ .docx)
+├── tablas/              # B7
+├── mapa.html            # B7 (fase 5)
 └── borradores/          # R1–R4 + informes de verificación
 ```
 

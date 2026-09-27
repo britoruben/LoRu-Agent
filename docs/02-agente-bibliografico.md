@@ -43,7 +43,15 @@ fuente). Puntuación compuesta configurable:
 | Similitud semántica con la pregunta | Pertinencia | Juicio del LLM sobre título+resumen, con justificación |
 | Recencia | Estado actual del debate | Peso bajo |
 
-**Punto de control humano:** el usuario revisa `candidatos.csv` y produce `seleccion.csv`.
+Cada candidato lleva en `candidatos.csv` su puntuación desglosada por señal y una columna
+`motivo` con **una frase de justificación** (p. ej. "Muy citado dentro del corpus (12/40) y aborda
+directamente la variable X"). Sin justificación, la puntuación no se muestra.
+
+Pesos por defecto (a calibrar en el proyecto piloto): citas 0,2 · citas/año 0,25 ·
+centralidad 0,25 · pertinencia 0,25 · recencia 0,05. En la primera búsqueda, sin red aún, el peso
+de centralidad se redistribuye entre los demás.
+
+**Punto de control PC-2:** el usuario revisa `candidatos.csv` y produce `seleccion.csv`.
 
 ## B4 · Recuperación de documentos
 
@@ -56,10 +64,19 @@ página hay que usar la versión publicada**.
 
 ## B5 · Análisis de contenido
 
-Un subagente `lector` por documento. Produce una ficha estructurada:
+Un subagente `lector` por documento, en **dos niveles**:
+
+| Nivel | A quién se aplica | Qué lee | Ficha |
+|---|---|---|---|
+| **Ligero** | Todo el corpus seleccionado | Resumen, introducción, conclusiones | `nivel: ligero` — tesis, método, hallazgos principales, conceptos, posición |
+| **Completo** | Los `max_lectura_completa` mejor puntuados (+ los que el usuario marque) | Texto completo | `nivel: completo` — todos los campos, incluidas citas textuales con página |
+
+Un documento puede promocionarse de ligero a completo si el `sintetizador` detecta que es central
+en una disputa. Esquema de la ficha completa:
 
 ```yaml
 id: doi:10.xxxx/yyyy
+nivel: completo
 tesis_principal: "..."
 preguntas: [...]
 metodologia: "..."
@@ -83,13 +100,25 @@ Toda `pagina` se valida contra el texto extraído (ver `05`).
 - Construir `grafo.json` (documentos del corpus + referencias).
 - Detectar referencias muy citadas dentro del corpus que no están en él → nuevos candidatos.
 - **Hacia atrás** (lo que citan) y **hacia delante** (quién los cita).
-- **Criterio de parada:** profundidad máxima, máximo de nuevos candidatos por ronda, o
-  saturación (una ronda aporta < N documentos nuevos relevantes).
-- Cada ronda vuelve a pasar por el control humano de B3.
+- **Criterio de parada (por defecto, "moderado"):** máximo **2 rondas**, máximo **30 candidatos
+  nuevos por ronda**, y parada anticipada si una ronda aporta **menos de 3** documentos que superen
+  el umbral de relevancia (saturación).
+- Perfiles alternativos en `proyecto.yaml`: `ligero` (1 ronda, solo hacia atrás) y `exhaustivo`
+  (hasta 5 rondas o saturación; para revisiones sistemáticas).
+- Cada ronda vuelve a pasar por el punto de control PC-2.
 
 ## B7 · Estado de la cuestión
 
-Salida `estado-cuestion.md` con:
+Cuatro productos, todos generados a partir de las mismas fichas (una sola fuente de verdad):
+
+| Producto | Archivo | Contenido | Fase |
+|---|---|---|---|
+| Ficha breve | `resumen-ejecutivo.md` | 1 página: estado del debate, 5 obras clave, principales disputas y vacíos, recomendación | 4 |
+| Informe en prosa | `estado-cuestion.md` (+ `.docx` vía Pandoc) | Estructura detallada abajo | 4 |
+| Tablas de síntesis | `tablas/*.csv` + incrustadas en el informe | Matriz documento × posición/método/hallazgo; tabla de disputas; tabla de vacíos | 4 |
+| Mapa visual | `mapa.html` | Red de citas interactiva coloreada por escuela/posición | 5 (requiere el grafo de B6) |
+
+Estructura del informe en prosa:
 1. Mapa del campo (líneas / escuelas / enfoques) con documentos de referencia.
 2. Consensos.
 3. **Disputas:** posiciones enfrentadas, quién sostiene qué, con cita y página.
