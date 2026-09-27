@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m tools.verification.verify_citations:*)",
+      "Bash(python -m tools.verification.verify_citations:*)",
+      "Bash(python3 -m tools.pdf.extract_text:*)",
+      "Bash(python -m tools.pdf.extract_text:*)",
+      "Bash(python3 -m tools.sources.check_dois:*)",
+      "Bash(python -m tools.sources.check_dois:*)",
+      "Bash(python3 -m unittest:*)",
+      "Bash(python -m unittest:*)"
+    ]
+  }
+}

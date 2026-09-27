@@ -35,7 +35,7 @@ archivos y ejecutar programas, siempre con tu permiso. Se usa escribiendo en la 
 programa pequeño que hace una sola cosa (por ejemplo, "extraer el texto de un PDF").
 
 **Comando (`/algo`)** — Una orden que se escribe en la conversación con Claude Code empezando por
-barra, como `/estado-cuestion`. Pone en marcha un proceso ya preparado. En la documentación técnica
+barra, como `/state-of-the-art`. Pone en marcha un proceso ya preparado. En la documentación técnica
 se llaman *skills*.
 
 **CSL / citeproc / Pandoc** — Herramientas que dan formato a las citas y a la bibliografía.
@@ -56,8 +56,14 @@ puede comprobar se hace de forma determinista.
 no solo por sus palabras exactas. Se usará para localizar en el original el pasaje que corresponde
 a una paráfrasis.
 
+**Entorno virtual (`.venv`)** — Una carpeta donde se instalan los paquetes de Python que necesita
+este proyecto, separados del resto del ordenador. Así no se estropea nada fuera del proyecto.
+
 **Estado de la cuestión** — Informe sobre qué se sabe de un tema: posiciones, consensos, disputas,
 errores y preguntas sin responder.
+
+**GitHub Actions** — Un servicio de GitHub que ejecuta las pruebas automáticas cada vez que se
+suben cambios, en Windows, macOS y Linux. Si alguna falla, el cambio aparece marcado en rojo.
 
 **Git / repositorio (repo)** — Git es un sistema que guarda el historial de cambios de un conjunto
 de archivos, como el "control de cambios" de Word pero para una carpeta entera. Un *repositorio* es
@@ -82,6 +88,12 @@ con un gestor bibliográfico como Zotero). Un *servidor MCP* es el adaptador que
 **OCR** — Reconocimiento de texto en imágenes. Hace falta cuando un PDF es un libro escaneado (una
 foto de cada página) y no contiene texto que se pueda copiar. Puede cometer errores.
 
+**Markdown (`.md`)** — Texto con formato muy sencillo: `# Título`, `**negrita**`, `> cita`.
+Se abre con cualquier editor de texto y GitHub lo muestra con formato.
+
+**Paquete / dependencia** — Un programa ya hecho por otras personas que este proyecto usa, como
+`pypdf` para leer PDF. Se instalan con la lista de `requirements.txt`.
+
 **Página impresa vs. página del PDF** — La página 1 del PDF puede ser la página 45 del libro o de la
 revista. Para citar hay que usar siempre la **página impresa**.
 
@@ -89,11 +101,15 @@ revista. Para citar hay que usar siempre la **página impresa**.
 pregunta, disciplina, idiomas, periodo, dónde buscar, estilo de cita, límites. Permite que el mismo
 sistema sirva para filosofía o para medicina.
 
+**Prueba automática (*test*)** — Un caso preparado de antemano con la respuesta correcta
+conocida ("esta cita tiene la página equivocada: el programa debe detectarlo"). Se ejecutan todas
+a la vez en segundos; si alguna falla, algo se ha estropeado. Están en la carpeta `tests/`.
+
 **Punto de control** — Momento en que el sistema se detiene y te pide que apruebes algo antes de
 seguir. Hay cuatro (ver la [guía](guia.md)).
 
 **Registro de decisiones (ADR)** — Una nota breve que explica una decisión importante del proyecto:
-qué se decidió, qué alternativas había y por qué. Están en `docs/decisiones/`. "ADR" son las
+qué se decidió, qué alternativas había y por qué. Están en `docs/decisions/`. "ADR" son las
 siglas en inglés de *Architecture Decision Record*.
 
 **Subagente** — Una copia de Claude a la que se encarga una única tarea con instrucciones

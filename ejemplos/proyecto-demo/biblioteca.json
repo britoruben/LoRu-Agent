@@ -1,0 +1,46 @@
+[
+  {
+    "id": "ficticia2021",
+    "type": "book",
+    "title": "La opacidad de las máquinas que aprenden [OBRA FICTICIA PARA PRUEBAS]",
+    "author": [{"family": "Ficticia", "given": "Ana"}],
+    "issued": {"date-parts": [[2021]]},
+    "publisher": "Editorial Inventada",
+    "verificacion": "manual",
+    "fecha_verificacion": "2026-09-27",
+    "texto_local": "texto/ficticia2021.json",
+    "version": "publicada"
+  },
+  {
+    "id": "ejemplar2019",
+    "type": "article-journal",
+    "title": "Responsabilidad sin comprensión [OBRA FICTICIA PARA PRUEBAS]",
+    "author": [{"family": "Ejemplar", "given": "Luis"}],
+    "issued": {"date-parts": [[2019]]},
+    "container-title": "Revista Imaginaria de Filosofía",
+    "page": "112-114",
+    "verificacion": "manual",
+    "fecha_verificacion": "2026-09-27",
+    "texto_local": "texto/ejemplar2019.json",
+    "version": "publicada"
+  },
+  {
+    "id": "escaneo1975",
+    "type": "book",
+    "title": "Técnica y juicio [OBRA FICTICIA PARA PRUEBAS; texto escaneado]",
+    "author": [{"family": "Antiguo", "given": "Pedro"}],
+    "issued": {"date-parts": [[1975]]},
+    "verificacion": "manual",
+    "fecha_verificacion": "2026-09-27",
+    "texto_local": "texto/escaneo1975.json",
+    "version": "publicada"
+  },
+  {
+    "id": "sincomprobar2023",
+    "type": "article-journal",
+    "title": "Una obra añadida pero no comprobada [OBRA FICTICIA PARA PRUEBAS]",
+    "author": [{"family": "Pendiente", "given": "Eva"}],
+    "issued": {"date-parts": [[2023]]},
+    "verificacion": "pendiente"
+  }
+]

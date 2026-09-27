@@ -1,0 +1,5 @@
+# Python packages LoRu-Agent needs.
+# Install with: python3 -m pip install -r requirements.txt  (see docs/instalacion.md)
+
+# Read the text of PDFs and their page numbering.
+pypdf>=6.0,<7

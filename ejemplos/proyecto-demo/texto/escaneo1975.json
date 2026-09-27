@@ -1,0 +1,7 @@
+{
+  "calidad": "ocr",
+  "nota": "Texto FICTICIO que simula un libro escaneado, con errores típicos de reconocimiento de texto (OCR): 'rn' leído en lugar de 'm', 'I' en lugar de 'l'.",
+  "paginas": [
+    {"pdf": 1, "impresa": "9", "texto": "Prólogo\n\nToda técnica prornete descargarnos de una tarea; ninguna prornete descargarnos del juicio. EI juicio es precisamente lo que queda cuando la técnica ha terminado su trabajo."}
+  ]
+}

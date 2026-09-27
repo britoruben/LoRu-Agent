@@ -1,9 +1,12 @@
-# Documentos con copyright y datos de trabajo (nunca a git)
+# Copyrighted documents and working data (never into git)
 corpus/
 proyectos/
 *.pdf
+# Exception: fictitious PDFs created for tests and examples (no copyright)
+!tests/data/*.pdf
+!ejemplos/**/pdf/*.pdf
 
-# Secretos
+# Secrets
 .env
 *.key
 

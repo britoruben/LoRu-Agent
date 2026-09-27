@@ -1,0 +1,30 @@
+{
+  "fuente": "ficticia2021.pdf",
+  "calidad": "ok",
+  "origen_paginacion": "numeros_detectados",
+  "avisos": [
+    "Páginas del PDF sin número impreso, numeradas por deducción: 3 (→ 47). Si citas alguna, comprueba la página."
+  ],
+  "paginas": [
+    {
+      "pdf": 1,
+      "impresa": "45",
+      "texto": "Capítulo 3. La caja negra\nLlamamos opacidad a la distancia que separa lo que un sistema\nhace de lo que podemos decir sobre por qué lo hace. Un sistema\nes opaco cuando sus resultados son verificables pero sus\nrazones no lo son. Esta distinción, que parece meramente\ntécnica, tiene consecuencias morales de pri-\nmer orden."
+    },
+    {
+      "pdf": 2,
+      "impresa": "46",
+      "texto": "En efecto, exigir una explicación no es un capricho\nepistemológico: es la condición de posibilidad de la crítica.\nQuien no puede preguntar por las razones de una decisión solo\npuede aceptarla o rechazarla en bloque. La opacidad, por tanto,\nno es un defecto del sistema, sino una propiedad de la relación\nentre el sistema y quienes deben responder por él. Cuando esa\nrelación se"
+    },
+    {
+      "pdf": 3,
+      "impresa": "47",
+      "texto": "rompe, la responsabilidad se diluye entre el diseñador, el\nusuario y la máquina, y nadie responde de nada. Conviene no\nconfundir, sin embargo, la transparencia con la inteligibilidad:\nun código abierto puede ser perfectamente ininteligible."
+    },
+    {
+      "pdf": 4,
+      "impresa": "48",
+      "texto": "Página añadida para las pruebas: con cuatro páginas se puede\ncomprobar que las cabeceras alternas se reconocen y se quitan."
+    }
+  ]
+}
